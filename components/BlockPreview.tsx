@@ -28,6 +28,7 @@ const LGSIZE = 82
 export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title }) => {
     const [width, setWidth] = useState(DEFAULTSIZE)
     const [mode, setMode] = useState<'preview' | 'code'>('preview')
+    const [iframeHeight, setIframeHeight] = useState(0)
     const { copied, copy } = useCopyToClipboard(code)
     const ref = useRef<ImperativePanelGroupHandle>(null)
     const isLarge = useMedia('(min-width: 1024px)')
@@ -37,7 +38,10 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
     useEffect(() => {
         const iframe = iframeRef.current
         const handleLoad = () => {
-            iframe!.style.height = iframe!.contentWindow!.document.body.scrollHeight + 'px'
+            const contentHeight = iframe!.contentWindow!.document.body.scrollHeight
+
+            iframe!.style.height = `${contentHeight}px`
+            setIframeHeight(contentHeight)
         }
 
         iframe!.addEventListener('load', handleLoad)
@@ -120,7 +124,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                         </PanelGroup>
                     </div>
 
-                    <div className="bg-white dark:bg-transparent">{mode == 'code' && <CodeBlock code={code} lang="tsx" />}</div>
+                    <div className="bg-white dark:bg-transparent">{mode == 'code' && <CodeBlock code={code} lang="tsx" maxHeight={iframeHeight} />}</div>
                 </div>
             </div>
         </section>

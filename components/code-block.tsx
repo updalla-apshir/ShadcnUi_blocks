@@ -26,9 +26,10 @@ type Props = {
     lang: BundledLanguage
     initial?: JSX.Element
     preHighlighted?: JSX.Element | null
+    maxHeight?: number
 }
 
-export default function CodeBlock({ code, lang, initial, preHighlighted }: Props) {
+export default function CodeBlock({ code, lang, initial, maxHeight, preHighlighted }: Props) {
     const [content, setContent] = useState<JSX.Element | null>(preHighlighted || initial || null)
 
     useLayoutEffect(() => {
@@ -53,5 +54,11 @@ export default function CodeBlock({ code, lang, initial, preHighlighted }: Props
         }
     }, [code, lang, preHighlighted])
 
-    return content ? <div className="[&_code]:text-[13px]/2 [&_code]:font-mono [&_pre]:min-h-[32rem] [&_pre]:overflow-auto [&_pre]:border-l [&_pre]:!bg-zinc-950 [&_pre]:p-4 [&_pre]:leading-snug dark:[&_pre]:!bg-zinc-900/50">{content}</div> : <pre className="rounded-lg bg-zinc-950 p-4">Loading...</pre>
+    return content ? (
+        <div className="[&_code]:text-[13px]/2 [&_pre]:max-h-(--pre-max-height) [&_code]:font-mono [&_pre]:min-h-[32rem] [&_pre]:overflow-auto [&_pre]:border-l [&_pre]:!bg-zinc-950 [&_pre]:p-4 [&_pre]:leading-snug dark:[&_pre]:!bg-zinc-900/50" style={{ '--pre-max-height': `${maxHeight}px` } as React.CSSProperties}>
+            {content}
+        </div>
+    ) : (
+        <pre className="rounded-lg bg-zinc-950 p-4">Loading...</pre>
+    )
 }
