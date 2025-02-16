@@ -2,7 +2,7 @@
 
 import type React from 'react'
 import { useState, useRef, useEffect } from 'react'
-import { Check, Code, Code2, Copy, Eye } from 'lucide-react'
+import { Check, Code2, Copy, Eye } from 'lucide-react'
 import { Panel, PanelGroup, PanelResizeHandle, type ImperativePanelGroupHandle } from 'react-resizable-panels'
 import { Separator } from '@/components/ui/separator'
 import * as RadioGroup from '@radix-ui/react-radio-group'
@@ -18,7 +18,7 @@ export interface BlockPreviewProps {
     title: string
 }
 
-const radioItem = 'rounded-[calc(var(--radius)-2px)] duration-200 flex border border-transparent items-center justify-center h-7 px-2.5 gap-2 transition-[color] data-[state=checked]:bg-white data-[state=checked]:shadow dark:data-[state=checked]:border-transparent dark:data-[state=checked]:shadow-none dark:data-[state=checked]:bg-background'
+const radioItem = 'rounded-full duration-200 flex border border-transparent items-center justify-center h-7 px-2.5 gap-2 transition-[color] data-[state=checked]:bg-muted'
 
 const DEFAULTSIZE = 100
 const SMSIZE = 30
@@ -54,11 +54,14 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                     <div className="to-(--color-border) absolute bottom-0 right-0 top-0 w-px bg-gradient-to-b from-transparent to-75%"></div>
                 </div>
 
-                <div className="relative z-10 mx-auto flex max-w-7xl justify-between px-6 py-1.5 md:py-2 lg:px-2">
+                <div className="relative z-10 mx-auto flex max-w-7xl justify-between py-1.5 pl-8 pr-6 md:py-2 lg:pl-6 lg:pr-2">
                     <div className="flex items-center gap-3">
+                        <span className="text-sm capitalize">{title}</span>
                         {code && (
                             <>
-                                <RadioGroup.Root className="rounded-(--radius) dark:bg-muted flex gap-0.5 border border-zinc-950/5 bg-zinc-950/5 p-0.5 dark:border-transparent">
+                                <Separator orientation="vertical" className="hidden !h-4 lg:block" />
+
+                                <RadioGroup.Root className="rounded-(--radius) flex gap-0.5 p-0.5">
                                     <RadioGroup.Item onClick={() => setMode('preview')} aria-label="Block preview" value="100" checked={mode == 'preview'} className={radioItem}>
                                         <Eye className="size-3.5 opacity-50" />
                                         <span className="text-[13px]">Preview</span>
@@ -69,15 +72,11 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                                         <span className="text-[13px]">Code</span>
                                     </RadioGroup.Item>
                                 </RadioGroup.Root>
-                            </>
-                        )}
 
-                        {mode == 'preview' && (
-                            <>
                                 <Separator orientation="vertical" className="hidden !h-4 lg:block" />
-                                <span className="text-muted-foreground hidden text-sm lg:block">{width < MDSIZE ? 'Mobile' : width < LGSIZE ? 'Tablet' : 'Desktop'}</span>{' '}
                             </>
                         )}
+                        <span className="text-muted-foreground hidden text-sm lg:block">{width < MDSIZE ? 'Mobile' : width < LGSIZE ? 'Tablet' : 'Desktop'}</span>{' '}
                     </div>
 
                     <div className="flex items-center gap-2">
@@ -85,7 +84,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                             <>
                                 <Separator className="!h-4" orientation="vertical" />
 
-                                <Button onClick={copy} size="sm" variant="ghost" aria-label="copy code" className="size-9">
+                                <Button onClick={copy} size="sm" variant="ghost" aria-label="copy code" className="size-8">
                                     {copied ? <Check className="size-4" /> : <Copy className="!size-3.5" />}
                                 </Button>
                             </>
