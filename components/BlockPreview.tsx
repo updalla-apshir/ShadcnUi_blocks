@@ -2,7 +2,7 @@
 
 import type React from 'react'
 import { useState, useRef, useEffect } from 'react'
-import { Check, Code2, Copy, Eye } from 'lucide-react'
+import { Check, Code, Code2, Copy, Eye } from 'lucide-react'
 import { Panel, PanelGroup, PanelResizeHandle, type ImperativePanelGroupHandle } from 'react-resizable-panels'
 import { Separator } from '@/components/ui/separator'
 import * as RadioGroup from '@radix-ui/react-radio-group'
@@ -10,6 +10,7 @@ import { useCopyToClipboard } from '@/hooks/useClipboard'
 import { useMedia } from 'use-media'
 import { Button } from './ui/button'
 import { cn } from '@/lib/utils'
+import CodeBlock from './code-block'
 
 export interface BlockPreviewProps {
     code: string
@@ -17,7 +18,7 @@ export interface BlockPreviewProps {
     title: string
 }
 
-const radioItem = 'rounded-[calc(var(--radius)-2px)] duration-300 flex border border-transparent items-center justify-center h-7 px-2.5 gap-2 text-[--caption-text-color] transition-[color] data-[state=checked]:bg-white data-[state=checked]:shadow dark:data-[state=checked]:shadow-zinc-950/50 dark:data-[state=checked]:border-white/5 dark:data-[state=checked]:bg-muted'
+const radioItem = 'rounded-[calc(var(--radius)-2px)] duration-200 flex border border-transparent items-center justify-center h-7 px-2.5 gap-2 transition-[color] data-[state=checked]:bg-white data-[state=checked]:shadow dark:data-[state=checked]:border-transparent dark:data-[state=checked]:shadow-none dark:data-[state=checked]:bg-background'
 
 const DEFAULTSIZE = 100
 const SMSIZE = 30
@@ -57,15 +58,15 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                     <div className="flex items-center gap-3">
                         {code && (
                             <>
-                                <RadioGroup.Root className="rounded-(--radius) flex gap-0.5 border border-zinc-950/5 bg-zinc-950/5 p-0.5 dark:border-white/10 dark:bg-zinc-950/50">
+                                <RadioGroup.Root className="rounded-(--radius) dark:bg-muted flex gap-0.5 border border-zinc-950/5 bg-zinc-950/5 p-0.5 dark:border-transparent">
                                     <RadioGroup.Item onClick={() => setMode('preview')} aria-label="Block preview" value="100" checked={mode == 'preview'} className={radioItem}>
-                                        <Eye className="size-3" />
-                                        <span className="hidden text-xs md:block">Preview</span>
+                                        <Eye className="size-3.5 opacity-50" />
+                                        <span className="text-[13px]">Preview</span>
                                     </RadioGroup.Item>
 
                                     <RadioGroup.Item onClick={() => setMode('code')} aria-label="Code" value="0" checked={mode == 'code'} className={radioItem}>
-                                        <Code2 className="size-3" />
-                                        <span className="hidden text-xs md:block">Code</span>
+                                        <Code2 className="size-3.5 opacity-50" />
+                                        <span className="text-[13px]">Code</span>
                                     </RadioGroup.Item>
                                 </RadioGroup.Root>
                             </>
@@ -73,7 +74,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
 
                         {mode == 'preview' && (
                             <>
-                                <Separator orientation="vertical" className="hidden h-4 lg:block" />
+                                <Separator orientation="vertical" className="hidden !h-4 lg:block" />
                                 <span className="text-muted-foreground hidden text-sm lg:block">{width < MDSIZE ? 'Mobile' : width < LGSIZE ? 'Tablet' : 'Desktop'}</span>{' '}
                             </>
                         )}
@@ -82,7 +83,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                     <div className="flex items-center gap-2">
                         {code && (
                             <>
-                                <Separator className="h-4" orientation="vertical" />
+                                <Separator className="!h-4" orientation="vertical" />
 
                                 <Button onClick={copy} size="sm" variant="ghost" aria-label="copy code" className="size-9">
                                     {copied ? <Check className="size-4" /> : <Copy className="!size-3.5" />}
@@ -121,15 +122,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                         </PanelGroup>
                     </div>
 
-                    <div className="bg-white dark:bg-transparent">
-                        {mode == 'code' && (
-                            <div>
-                                <pre>
-                                    <code>{code}</code>
-                                </pre>
-                            </div>
-                        )}
-                    </div>
+                    <div className="bg-white dark:bg-transparent">{mode == 'code' && <CodeBlock code={code} lang="tsx" />}</div>
                 </div>
             </div>
         </section>
