@@ -1,7 +1,7 @@
 'use client'
 
 import type React from 'react'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Check, Code2, Copy, Eye } from 'lucide-react'
 import { Panel, PanelGroup, PanelResizeHandle, type ImperativePanelGroupHandle } from 'react-resizable-panels'
 import { Separator } from '@/components/ui/separator'
@@ -31,6 +31,20 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
     const ref = useRef<ImperativePanelGroupHandle>(null)
     const isLarge = useMedia('(min-width: 1024px)')
 
+    const iframeRef = useRef<HTMLIFrameElement>(null)
+
+    useEffect(() => {
+        const iframe = iframeRef.current
+        const handleLoad = () => {
+            iframe!.style.height = iframe!.contentWindow!.document.body.scrollHeight + 'px'
+        }
+
+        iframe!.addEventListener('load', handleLoad)
+        return () => {
+            iframe!.removeEventListener('load', handleLoad)
+        }
+    }, [])
+
     return (
         <section className="group mb-32 border-b [--color-border:color-mix(in_oklab,var(--color-zinc-200)_75%,transparent)] dark:[--color-border:color-mix(in_oklab,var(--color-zinc-800)_60%,transparent)]">
             <div className="relative border-y">
@@ -38,6 +52,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                     <div className="to-(--color-border) absolute bottom-0 left-0 top-0 w-px bg-gradient-to-b from-transparent to-75%"></div>
                     <div className="to-(--color-border) absolute bottom-0 right-0 top-0 w-px bg-gradient-to-b from-transparent to-75%"></div>
                 </div>
+
                 <div className="relative z-10 mx-auto flex max-w-7xl justify-between px-6 py-1.5 md:py-2 lg:px-2">
                     <div className="flex items-center gap-3">
                         {code && (
@@ -47,6 +62,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                                         <Eye className="size-3" />
                                         <span className="hidden text-xs md:block">Preview</span>
                                     </RadioGroup.Item>
+
                                     <RadioGroup.Item onClick={() => setMode('code')} aria-label="Code" value="0" checked={mode == 'code'} className={radioItem}>
                                         <Code2 className="size-3" />
                                         <span className="hidden text-xs md:block">Code</span>
@@ -62,10 +78,12 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                             </>
                         )}
                     </div>
+
                     <div className="flex items-center gap-2">
                         {code && (
                             <>
                                 <Separator className="h-4" orientation="vertical" />
+
                                 <Button onClick={copy} size="sm" variant="ghost" aria-label="copy code" className="size-9">
                                     {copied ? <Check className="size-4" /> : <Copy className="!size-3.5" />}
                                 </Button>
@@ -91,8 +109,9 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                                 defaultSize={DEFAULTSIZE}
                                 minSize={SMSIZE}
                                 className="h-fit border-x">
-                                <iframe loading="lazy" title={title} className="block h-full min-h-[45rem] w-full" src={src} id={`block-${title}`} />
+                                <iframe ref={iframeRef} loading="lazy" title={title} className="block h-full min-h-[45rem] w-full" src={src} id={`block-${title}`} />
                             </Panel>
+
                             {isLarge && (
                                 <>
                                     <PanelResizeHandle className="relative w-2 before:absolute before:inset-0 before:m-auto before:h-12 before:w-1 before:rounded-full before:bg-zinc-300 before:transition-[height,background] hover:before:h-16 hover:before:bg-zinc-400 focus:before:bg-zinc-400 dark:before:bg-zinc-600 dark:hover:before:bg-zinc-500 dark:focus:before:bg-zinc-400" />
