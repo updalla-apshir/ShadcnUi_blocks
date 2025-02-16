@@ -25,8 +25,8 @@ export const ThemeToggle = () => {
 export default function Home() {
     return (
         <>
-            <BlockPreview src="https://html.tailus.io/blocks-preview/pricing/one" code={code} title="title 1" />
-            <BlockPreview src="https://html.tailus.io/blocks-preview/team/one" code="<div/>" title="title 2" />
+            <BlockPreview preview="https://html.tailus.io/blocks-preview/pricing/one" code={code} title="title 1" />
+            <BlockPreview preview="https://html.tailus.io/blocks-preview/team/one" code="<div/>" title="title 2" />
         </>
     )
 }

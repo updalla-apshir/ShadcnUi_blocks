@@ -14,7 +14,7 @@ import CodeBlock from './code-block'
 
 export interface BlockPreviewProps {
     code: string
-    src: string
+    preview: string
     title: string
 }
 
@@ -25,7 +25,7 @@ const SMSIZE = 30
 const MDSIZE = 62
 const LGSIZE = 82
 
-export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) => {
+export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title }) => {
     const [width, setWidth] = useState(DEFAULTSIZE)
     const [mode, setMode] = useState<'preview' | 'code'>('preview')
     const { copied, copy } = useCopyToClipboard(code)
@@ -55,8 +55,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                 </div>
 
                 <div className="relative z-10 mx-auto flex max-w-7xl justify-between py-1.5 pl-8 pr-6 md:py-2 lg:pl-6 lg:pr-2">
-                    <div className="flex items-center gap-3">
-                        <span className="text-sm capitalize">{title}</span>
+                    <div className="-ml-3 flex items-center gap-3">
                         {code && (
                             <>
                                 <Separator orientation="vertical" className="hidden !h-4 lg:block" />
@@ -109,7 +108,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, src, title }) 
                                 defaultSize={DEFAULTSIZE}
                                 minSize={SMSIZE}
                                 className="h-fit border-x">
-                                <iframe ref={iframeRef} loading="lazy" title={title} className="block h-full min-h-[45rem] w-full" src={src} id={`block-${title}`} />
+                                <iframe ref={iframeRef} loading="lazy" title={title} className="block h-full min-h-[45rem] w-full" src={preview} id={`block-${title}`} />
                             </Panel>
 
                             {isLarge && (
