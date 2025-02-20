@@ -28,6 +28,13 @@ export const blocks: Block[] = [
         category: 'hero-section',
         preview: '/preview/hero-section/one',
         code: loadCode('app/preview/hero-section/one/page.tsx'),
+    },
+    {
+        slug: 'hero-section',
+        title: 'two',
+        category: 'hero-section',
+        preview: '/preview/hero-section/two',
+        code: loadCode('app/preview/hero-section/two/page.tsx'),
     }
 ]
 
