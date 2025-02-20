@@ -1,7 +1,16 @@
+import Link from 'next/link'
+import { Logo } from './logo'
+import { Button } from './ui/button'
+import { ArrowUpRight } from 'lucide-react'
+import { ThemeToggle } from './ThemeToggle'
+
 export const SiteFooter = () => (
-    <footer className="py-4">
-        <div className="mx-auto max-w-6xl px-6">
-            <div className="-mb-2 flex flex-wrap gap-1 overflow-hidden text-sm font-medium text-gray-700 dark:text-gray-300">
+    <footer className="pb-16">
+        <div className="mx-auto max-w-7xl px-10 lg:px-6">
+            <Link href="/" className="hover:bg-muted -m-2 inline-block rounded-full p-2 duration-200">
+                <Logo className="size-5" />
+            </Link>
+            <div className="mt-2 flex flex-wrap gap-1 overflow-hidden text-sm font-medium text-gray-700 dark:text-gray-300">
                 Designed by Tailus UI in
                 <div className="flex items-start justify-center gap-2 text-center font-semibold text-gray-950 sm:gap-1 dark:text-white">
                     <div className="block">
@@ -19,6 +28,15 @@ export const SiteFooter = () => (
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="flex">
+                <Button asChild variant="link" className="-ml-4 gap-1">
+                    <Link href="" className="text-sm">
+                        GitHub
+                        <ArrowUpRight className="!size-3.5 opacity-50" />
+                    </Link>
+                </Button>
+                <ThemeToggle />
             </div>
         </div>
     </footer>

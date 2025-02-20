@@ -18,7 +18,7 @@ export interface BlockPreviewProps {
     title: string
 }
 
-const radioItem = 'rounded-full duration-200 flex border border-transparent items-center justify-center h-7 px-2.5 gap-2 transition-[color] data-[state=checked]:bg-muted'
+const radioItem = 'rounded-full duration-200 flex border border-transparent items-center justify-center h-7 px-2.5 gap-2 transition-[color] data-[state=checked]:border-zinc-300 dark:data-[state=checked]:border-zinc-700/75 data-[state=checked]:bg-background'
 
 const DEFAULTSIZE = 100
 const SMSIZE = 30
@@ -51,7 +51,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
     }, [])
 
     return (
-        <section className="group mb-32 border-b [--color-border:color-mix(in_oklab,var(--color-zinc-200)_75%,transparent)] dark:[--color-border:color-mix(in_oklab,var(--color-zinc-800)_60%,transparent)]">
+        <section className="group mb-16 border-b [--color-border:color-mix(in_oklab,var(--color-zinc-200)_75%,transparent)] dark:[--color-border:color-mix(in_oklab,var(--color-zinc-800)_60%,transparent)]">
             <div className="relative border-y">
                 <div aria-hidden className="absolute inset-x-4 -top-14 bottom-0 mx-auto max-w-7xl lg:inset-x-0">
                     <div className="to-(--color-border) absolute bottom-0 left-0 top-0 w-px bg-gradient-to-b from-transparent to-75%"></div>
@@ -64,7 +64,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                             <>
                                 <Separator orientation="vertical" className="hidden !h-4 lg:block" />
 
-                                <RadioGroup.Root className="rounded-(--radius) flex gap-0.5 p-0.5">
+                                <RadioGroup.Root className="bg-muted flex gap-0.5 rounded-full p-0.5">
                                     <RadioGroup.Item onClick={() => setMode('preview')} aria-label="Block preview" value="100" checked={mode == 'preview'} className={radioItem}>
                                         <Eye className="size-3.5 opacity-50" />
                                         <span className="text-[13px]">Preview</span>
@@ -97,7 +97,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
             </div>
 
             <div className="relative">
-                <div aria-hidden className="absolute inset-x-0 -bottom-14 mx-auto h-14 max-w-7xl">
+                <div aria-hidden className="absolute inset-x-4 -bottom-14 mx-auto h-14 max-w-7xl lg:inset-x-0">
                     <div className="from-(--color-border) absolute bottom-0 left-0 top-0 w-px bg-gradient-to-b"></div>
                     <div className="from-(--color-border) absolute bottom-0 right-0 top-0 w-px bg-gradient-to-b"></div>
                 </div>
