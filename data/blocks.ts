@@ -23,38 +23,11 @@ export const blocks: Block[] = [
         code: loadCode('app/preview/pricing/one/page.tsx'),
     },
     {
-        slug: 'features',
-        title: 'two',
-        category: 'stats',
-        preview: '/preview/pricing/one',
-        code: loadCode('app/preview/pricing/one/page.tsx'),
-    },
-    {
-        slug: 'features',
-        title: 'two',
-        category: 'features',
-        preview: '/preview/pricing/one',
-        code: loadCode('app/preview/pricing/one/page.tsx'),
-    },
-    {
-        slug: 'features',
-        title: 'two',
-        category: 'footer',
-        preview: '/preview/pricing/one',
-        code: loadCode('app/preview/pricing/one/page.tsx'),
-    },
-    {
-        slug: 'features',
-        title: 'two',
-        category: 'logo-cloud',
-        preview: '/preview/pricing/one',
-        code: loadCode('app/preview/pricing/one/page.tsx'),
-    },{
-        slug: 'features',
-        title: 'two',
+        slug: 'hero-section',
+        title: 'one',
         category: 'hero-section',
-        preview: '/preview/pricing/one',
-        code: loadCode('app/preview/pricing/one/page.tsx'),
+        preview: '/preview/hero-section/one',
+        code: loadCode('app/preview/hero-section/one/page.tsx'),
     }
 ]
 
