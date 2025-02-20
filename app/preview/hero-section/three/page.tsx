@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { EffectCards, Autoplay, EffectCube, EffectFade, EffectCoverflow } from 'swiper/modules'
+import { Autoplay, EffectCoverflow } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/navigation'
