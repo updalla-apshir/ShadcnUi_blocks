@@ -149,9 +149,3 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
 }
 
 export default BlockPreview
-
-const IframeFallback = () => (
-    <div className="bg-background absolute inset-0 flex items-center justify-center">
-        <div className="border-primary size-8 animate-spin rounded-full border-2 border-t-transparent" />
-    </div>
-)
