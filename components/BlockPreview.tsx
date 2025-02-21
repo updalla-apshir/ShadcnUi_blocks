@@ -112,7 +112,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                                 defaultSize={DEFAULTSIZE}
                                 minSize={SMSIZE}
                                 className="h-fit border-x">
-                                <iframe ref={iframeRef} loading="lazy" title={title} className="block h-full w-full" src={preview} id={`block-${title}`} />
+                                <iframe ref={iframeRef} loading="lazy" title={title} className="block size-full min-h-96" src={preview} id={`block-${title}`} />
                             </Panel>
 
                             {isLarge && (

@@ -49,6 +49,48 @@ export const blocks: Block[] = [
         category: 'logo-cloud',
         preview: '/preview/logo-cloud/one',
         code: loadCode('app/preview/logo-cloud/one/page.tsx'),
+    },
+    {
+        slug: 'features',
+        title: 'one',
+        category: 'features',
+        preview: '/preview/features/one',
+        code: loadCode('app/preview/features/one/page.tsx'),
+    },
+    {
+        slug: 'features',
+        title: 'two',
+        category: 'features',
+        preview: '/preview/features/two',
+        code: loadCode('app/preview/features/two/page.tsx'),
+    },
+    {
+        slug: 'features',
+        title: 'three',
+        category: 'features',
+        preview: '/preview/features/three',
+        code: loadCode('app/preview/features/three/page.tsx'),
+    },
+    {
+        slug: 'features',
+        title: 'four',
+        category: 'features',
+        preview: '/preview/features/four',
+        code: loadCode('app/preview/features/four/page.tsx'),
+    },
+    {
+        slug: 'features',
+        title: 'five',
+        category: 'features',
+        preview: '/preview/features/five',
+        code: loadCode('app/preview/features/five/page.tsx'),
+    },
+    {
+        slug: 'features',
+        title: 'six',
+        category: 'features',
+        preview: '/preview/features/six',
+        code: loadCode('app/preview/features/six/page.tsx'),
     }
 ]
 
