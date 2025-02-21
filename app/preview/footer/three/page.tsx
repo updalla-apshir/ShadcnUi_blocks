@@ -193,7 +193,7 @@ export default function FooterSection() {
                     </form>
                 </div>
                 <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t py-6">
-                    <small className="text-caption order-last block text-center text-sm md:order-first">© {new Date().getFullYear()} Tailus UI, All rights reserved</small>
+                    <small className="text-muted-foreground order-last block text-center text-sm md:order-first">© {new Date().getFullYear()} Tailus UI, All rights reserved</small>
                     <form action="">
                         <div className="relative">
                             <ChevronsUpDown className="pointer-events-none absolute inset-y-0 right-2 my-auto opacity-75" size="0.75rem" />
