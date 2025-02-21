@@ -271,6 +271,13 @@ export const blocks: Block[] = [
         category: 'footer',
         preview: '/preview/footer/one',
         code: loadCode('app/preview/footer/one/page.tsx'),
+    },
+    {
+        slug: 'footer',
+        title: 'two',
+        category: 'footer',
+        preview: '/preview/footer/two',
+        code: loadCode('app/preview/footer/two/page.tsx'),
     }
 ]
 
