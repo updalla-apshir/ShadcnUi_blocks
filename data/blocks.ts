@@ -155,6 +155,34 @@ export const blocks: Block[] = [
         category: 'content',
         preview: '/preview/content/six',
         code: loadCode('app/preview/content/six/page.tsx'),
+    },
+    {
+        slug: 'stats',
+        title: 'one',
+        category: 'stats',
+        preview: '/preview/stats/one',
+        code: loadCode('app/preview/stats/one/page.tsx'),
+    },
+    {
+        slug: 'stats',
+        title: 'two',
+        category: 'stats',
+        preview: '/preview/stats/two',
+        code: loadCode('app/preview/stats/two/page.tsx'),
+    },
+    {
+        slug: 'stats',
+        title: 'three',
+        category: 'stats',
+        preview: '/preview/stats/three',
+        code: loadCode('app/preview/stats/three/page.tsx'),
+    },
+    {
+        slug: 'stats',
+        title: 'four',
+        category: 'stats',
+        preview: '/preview/stats/four',
+        code: loadCode('app/preview/stats/four/page.tsx'),
     }
 ]
 
