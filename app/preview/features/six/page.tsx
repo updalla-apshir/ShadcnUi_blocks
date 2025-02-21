@@ -3,11 +3,11 @@ import Image from 'next/image'
 
 export default function FeaturesSection() {
     return (
-        <section className="py-32">
+        <section className="py-16 md:py-32">
             <div className="mx-auto max-w-5xl space-y-12 px-6">
-                <div className="relative z-10 grid grid-cols-2 items-center">
+                <div className="relative z-10 grid items-center gap-4 md:grid-cols-2 md:gap-12">
                     <h2 className="text-4xl font-semibold">The Lyra ecosystem brings together our models</h2>
-                    <p className="ml-auto max-w-sm">Empower your team with workflows that adapt to your needs, whether you prefer git synchronization or a AI Agents interface.</p>
+                    <p className="max-w-sm sm:ml-auto">Empower your team with workflows that adapt to your needs, whether you prefer git synchronization or a AI Agents interface.</p>
                 </div>
                 <div className="relative rounded-3xl p-3 md:-mx-8 lg:col-span-3">
                     <div className="aspect-88/36 relative">

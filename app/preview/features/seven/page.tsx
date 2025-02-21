@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 export default function FeaturesSection() {
     return (
-        <section className="py-32">
-            <div className="mx-auto max-w-5xl space-y-12 px-6">
+        <section className="overflow-hidden py-16 md:py-32">
+            <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-12">
                 <div className="relative z-10 max-w-2xl">
                     <h2 className="text-4xl font-semibold lg:text-5xl">Built for Scaling teams</h2>
                     <p className="mt-6 text-lg">Empower your team with workflows that adapt to your needs, whether you prefer git synchronization or a AI Agents interface.</p>
