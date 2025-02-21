@@ -9,7 +9,7 @@ export default function Pricing() {
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-balance text-3xl font-bold md:text-4xl lg:text-5xl">Start managing your company smarter today</h2>
                 </div>
-                <div className="mt-12 md:mt-20">
+                <div className="mt-8 md:mt-20">
                     <div className="bg-card relative rounded-3xl border shadow-2xl shadow-zinc-950/5">
                         <div className="grid items-center gap-12 divide-y p-12 md:grid-cols-2 md:divide-x md:divide-y-0">
                             <div className="pb-12 text-center md:pb-0 md:pr-12">
