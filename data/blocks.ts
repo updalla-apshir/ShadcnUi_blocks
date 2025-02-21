@@ -183,6 +183,20 @@ export const blocks: Block[] = [
         category: 'stats',
         preview: '/preview/stats/four',
         code: loadCode('app/preview/stats/four/page.tsx'),
+    },
+    {
+        slug: 'team',
+        title: 'one',
+        category: 'team',
+        preview: '/preview/team/one',
+        code: loadCode('app/preview/team/one/page.tsx'),
+    },
+    {
+        slug: 'team',
+        title: 'two',
+        category: 'team',
+        preview: '/preview/team/two',
+        code: loadCode('app/preview/team/two/page.tsx'),
     }
 ]
 
