@@ -3,9 +3,7 @@ import { blocks, categories } from '@/data/blocks'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
-    params: {
-        category: string
-    }
+    params: Promise<{ category: string }>
 }
 
 export async function generateStaticParams() {
