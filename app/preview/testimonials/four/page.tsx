@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 export default function TestimonialsSection() {
     return (
-        <section className="py-32">
+        <section className="py-16 md:py-32">
             <div className="mx-auto max-w-5xl px-6">
                 <div className="mx-auto max-w-2xl text-center">
                     <blockquote>
