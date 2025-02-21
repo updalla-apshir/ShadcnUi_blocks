@@ -205,6 +205,41 @@ export const blocks: Block[] = [
         category: 'testimonials',
         preview: '/preview/testimonials/one',
         code: loadCode('app/preview/testimonials/one/page.tsx'),
+    },
+    {
+        slug: 'testimonials',
+        title: 'two',
+        category: 'testimonials',
+        preview: '/preview/testimonials/two',
+        code: loadCode('app/preview/testimonials/two/page.tsx'),
+    },
+    {
+        slug: 'testimonials',
+        title: 'three',
+        category: 'testimonials',
+        preview: '/preview/testimonials/three',
+        code: loadCode('app/preview/testimonials/three/page.tsx'),
+    },
+    {
+        slug: 'testimonials',
+        title: 'four',
+        category: 'testimonials',
+        preview: '/preview/testimonials/four',
+        code: loadCode('app/preview/testimonials/four/page.tsx'),
+    },
+    {
+        slug: 'testimonials',
+        title: 'five',
+        category: 'testimonials',
+        preview: '/preview/testimonials/five',
+        code: loadCode('app/preview/testimonials/five/page.tsx'),
+    },
+    {
+        slug: 'testimonials',
+        title: 'six',
+        category: 'testimonials',
+        preview: '/preview/testimonials/six',
+        code: loadCode('app/preview/testimonials/six/page.tsx'),
     }
 ]
 
