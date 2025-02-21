@@ -17,7 +17,7 @@ export default function Testimonials() {
                         </CardHeader>
                         <CardContent>
                             <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                                <p className="text-xl font-medium">"Tailus has transformed the way I develop web applications. Their extensive collection of UI components, blocks, and templates has significantly accelerated my workflow. The flexibility to customize every aspect allows me to create unique user experiences. Tailus is a game-changer for modern web development"</p>
+                                <p className="text-xl font-medium">Tailus has transformed the way I develop web applications. Their extensive collection of UI components, blocks, and templates has significantly accelerated my workflow. The flexibility to customize every aspect allows me to create unique user experiences. Tailus is a game-changer for modern web development</p>
 
                                 <div className="grid grid-cols-[auto_1fr] items-center gap-3">
                                     <Avatar className="size-12">
@@ -36,7 +36,7 @@ export default function Testimonials() {
                     <Card className="md:col-span-2">
                         <CardContent className="h-full pt-6">
                             <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                                <p className="text-xl font-medium">"Tailus is really extraordinary and very practical, no need to break your head. A real gold mine."</p>
+                                <p className="text-xl font-medium">Tailus is really extraordinary and very practical, no need to break your head. A real gold mine.</p>
 
                                 <div className="grid grid-cols-[auto_1fr] items-center gap-3">
                                     <Avatar className="size-12">
@@ -54,7 +54,7 @@ export default function Testimonials() {
                     <Card>
                         <CardContent className="h-full pt-6">
                             <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                                <p>"Great work on tailfolio template. This is one of the best personal website that I have seen so far :)"</p>
+                                <p>Great work on tailfolio template. This is one of the best personal website that I have seen so far!</p>
 
                                 <div className="grid items-center gap-3 [grid-template-columns:auto_1fr]">
                                     <Avatar className="size-12">
@@ -72,7 +72,7 @@ export default function Testimonials() {
                     <Card className="card variant-mixed">
                         <CardContent className="h-full pt-6">
                             <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                                <p>"Great work on tailfolio template. This is one of the best personal website that I have seen so far :)"</p>
+                                <p>Great work on tailfolio template. This is one of the best personal website that I have seen so far!</p>
 
                                 <div className="grid grid-cols-[auto_1fr] gap-3">
                                     <Avatar className="size-12">

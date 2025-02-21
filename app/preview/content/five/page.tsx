@@ -1,5 +1,4 @@
 import { Cpu, Lock, Sparkles, Zap } from 'lucide-react'
-import Link from 'next/link'
 
 export default function ContentSection() {
     return (

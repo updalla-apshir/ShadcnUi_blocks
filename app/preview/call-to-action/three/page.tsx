@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import { Mail, SendHorizonal } from 'lucide-react'
-import Link from 'next/link'
 
 export default function CallToAction() {
     return (

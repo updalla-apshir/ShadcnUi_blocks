@@ -1,4 +1,4 @@
-import { Activity, Cpu, DraftingCompass, Lock, Mail, Sparkles, Zap } from 'lucide-react'
+import { Cpu, Lock, Sparkles, Zap } from 'lucide-react'
 import Image from 'next/image'
 
 export default function FeaturesSection() {
