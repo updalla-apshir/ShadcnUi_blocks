@@ -263,6 +263,14 @@ export const blocks: Block[] = [
         category: 'call-to-action',
         preview: '/preview/call-to-action/three',
         code: loadCode('app/preview/call-to-action/three/page.tsx'),
+    },
+
+    {
+        slug: 'footer',
+        title: 'one',
+        category: 'footer',
+        preview: '/preview/footer/one',
+        code: loadCode('app/preview/footer/one/page.tsx'),
     }
 ]
 
