@@ -2,8 +2,8 @@ import { Cpu, Lock, Sparkles, Zap } from 'lucide-react'
 
 export default function ContentSection() {
     return (
-        <section className="py-32">
-            <div className="mx-auto max-w-5xl space-y-12 px-6">
+        <section className="py-16 md:py-32">
+            <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-12">
                 <div className="mx-auto max-w-xl space-y-6 text-center md:space-y-12">
                     <h2 className="text-balance text-4xl font-medium lg:text-5xl">The Lyra ecosystem brings together our models, products and platforms.</h2>
                     <p>Lyra is evolving to be more than just the models. It supports an entire ecosystem — from products to the APIs and platforms helping developers and businesses innovate.</p>
