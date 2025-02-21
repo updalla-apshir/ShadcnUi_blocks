@@ -294,6 +294,13 @@ export const blocks: Block[] = [
         preview: '/preview/pricing/one',
         code: loadCode('app/preview/pricing/one/page.tsx'),
     },
+    {
+        slug: 'pricing',
+        title: 'two',
+        category: 'pricing',
+        preview: '/preview/pricing/two',
+        code: loadCode('app/preview/pricing/two/page.tsx'),
+    },
 ]
 
 export const categories = [...new Set(blocks.map((b) => b.category))]

@@ -12,7 +12,7 @@ export default function PricingOne() {
                     <p>Gemini is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</p>
                 </div>
 
-                <div className="mt-20 grid gap-6 md:grid-cols-3">
+                <div className="mt-20 grid gap-6 [--color-card:var(--color-muted)] *:border-none *:shadow-none md:grid-cols-3 dark:[--color-muted:var(--color-zinc-900)]">
                     <Card className="flex flex-col">
                         <CardHeader>
                             <CardTitle className="font-medium">Free</CardTitle>
