@@ -27,7 +27,6 @@ export default function Home() {
         <>
             <BlockPreview preview="https://html.tailus.io/blocks-preview/pricing/one" code={code} title="title 1" />
             <BlockPreview preview="https://html.tailus.io/blocks-preview/team/one" code="<div/>" title="title 2" />
-            <BlockPreview preview="https://html.tailus.io/blocks-preview/contact/one" code={code} title="title 3" />
         </>
     )
 }
