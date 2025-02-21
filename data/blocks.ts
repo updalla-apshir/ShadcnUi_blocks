@@ -16,13 +16,6 @@ function loadCode(filePath: string): string {
 
 export const blocks: Block[] = [
     {
-        slug: 'pricing',
-        title: 'one',
-        category: 'pricing',
-        preview: '/preview/pricing/one',
-        code: loadCode('app/preview/pricing/one/page.tsx'),
-    },
-    {
         slug: 'hero-section',
         title: 'one',
         category: 'hero-section',
@@ -292,7 +285,15 @@ export const blocks: Block[] = [
         category: 'footer',
         preview: '/preview/footer/four',
         code: loadCode('app/preview/footer/four/page.tsx'),
-    }
+    },
+
+    {
+        slug: 'pricing',
+        title: 'one',
+        category: 'pricing',
+        preview: '/preview/pricing/one',
+        code: loadCode('app/preview/pricing/one/page.tsx'),
+    },
 ]
 
 export const categories = [...new Set(blocks.map((b) => b.category))]
