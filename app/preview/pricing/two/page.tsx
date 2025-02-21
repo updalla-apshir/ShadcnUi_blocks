@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Check } from 'lucide-react'
 
-export default function PricingOne() {
+export default function Pricing() {
     return (
         <section className="py-16 sm:py-24 lg:py-32">
             <div className="mx-auto max-w-6xl px-6">
