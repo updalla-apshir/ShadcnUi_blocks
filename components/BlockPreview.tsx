@@ -29,6 +29,8 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
     const [width, setWidth] = useState(DEFAULTSIZE)
     const [mode, setMode] = useState<'preview' | 'code'>('preview')
     const [iframeHeight, setIframeHeight] = useState(0)
+    const [isLoading, setIsLoading] = useState(true)
+
     const { copied, copy } = useCopyToClipboard(code)
     const ref = useRef<ImperativePanelGroupHandle>(null)
     const isLarge = useMedia('(min-width: 1024px)')
@@ -39,9 +41,9 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
         const iframe = iframeRef.current
         const handleLoad = () => {
             const contentHeight = iframe!.contentWindow!.document.body.scrollHeight
-
             iframe!.style.height = `${contentHeight}px`
             setIframeHeight(contentHeight)
+            setIsLoading(false)
         }
 
         iframe!.addEventListener('load', handleLoad)
@@ -112,7 +114,14 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                                 defaultSize={DEFAULTSIZE}
                                 minSize={SMSIZE}
                                 className="h-fit border-x">
-                                <iframe ref={iframeRef} loading="lazy" title={title} className="block size-full min-h-96" src={preview} id={`block-${title}`} />
+                                <div className="relative">
+                                    {isLoading && (
+                                        <div className="bg-background absolute inset-0 flex items-center justify-center">
+                                            <div className="border-primary size-8 animate-spin rounded-full border-2 border-t-transparent" />
+                                        </div>
+                                    )}
+                                    <iframe ref={iframeRef} loading="lazy" title={title} className="block size-full min-h-96" src={preview} id={`block-${title}`} />
+                                </div>
                             </Panel>
 
                             {isLarge && (
