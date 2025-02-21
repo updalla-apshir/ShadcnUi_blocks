@@ -240,6 +240,29 @@ export const blocks: Block[] = [
         category: 'testimonials',
         preview: '/preview/testimonials/six',
         code: loadCode('app/preview/testimonials/six/page.tsx'),
+    },
+
+
+    {
+        slug: 'call-to-action',
+        title: 'one',
+        category: 'call-to-action',
+        preview: '/preview/call-to-action/one',
+        code: loadCode('app/preview/call-to-action/one/page.tsx'),
+    },
+    {
+        slug: 'call-to-action',
+        title: 'two',
+        category: 'call-to-action',
+        preview: '/preview/call-to-action/two',
+        code: loadCode('app/preview/call-to-action/two/page.tsx'),
+    },
+    {
+        slug: 'call-to-action',
+        title: 'three',
+        category: 'call-to-action',
+        preview: '/preview/call-to-action/three',
+        code: loadCode('app/preview/call-to-action/three/page.tsx'),
     }
 ]
 
