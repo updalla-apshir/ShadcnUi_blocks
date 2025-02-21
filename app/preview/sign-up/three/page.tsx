@@ -13,8 +13,8 @@ export default function LoginPage() {
                         <Link href="/" aria-label="go home">
                             <Logo />
                         </Link>
-                        <h1 className="mb-1 mt-4 text-xl font-semibold">Sign In to Tailus UI</h1>
-                        <p>Welcome back! Sign in to continue</p>
+                        <h1 className="mb-1 mt-4 text-xl font-semibold">Create a Tailus UI Account</h1>
+                        <p>Welcome! Create an account to get started</p>
                     </div>
 
                     <div className="mt-6">
@@ -48,9 +48,9 @@ export default function LoginPage() {
                 </div>
 
                 <p className="text-accent-foreground text-center text-sm">
-                    Don't have an account ?
+                    Have an account ?
                     <Button asChild variant="link" className="px-2">
-                        <Link href="#">Create account</Link>
+                        <Link href="#">Sign In</Link>
                     </Button>
                 </p>
             </form>

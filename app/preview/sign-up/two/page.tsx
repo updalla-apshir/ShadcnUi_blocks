@@ -13,11 +13,26 @@ export default function LoginPage() {
                         <Link href="/" aria-label="go home" className="mx-auto block w-fit">
                             <Logo />
                         </Link>
-                        <h1 className="mb-1 mt-4 text-xl font-semibold">Sign In to Tailus UI</h1>
-                        <p className="text-sm">Welcome back! Sign in to continue</p>
+                        <h1 className="text-title mb-1 mt-4 text-xl font-semibold">Create a Tailus UI Account</h1>
+                        <p className="text-sm">Welcome! Create an account to get started</p>
                     </div>
 
                     <div className="mt-6 space-y-6">
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="space-y-2">
+                                <Label htmlFor="firstname" className="block text-sm">
+                                    Firstname
+                                </Label>
+                                <Input type="text" required name="firstname" id="firstname" />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="lastname" className="block text-sm">
+                                    Lastname
+                                </Label>
+                                <Input type="text" required name="lastname" id="lastname" />
+                            </div>
+                        </div>
+
                         <div className="space-y-2">
                             <Label htmlFor="email" className="block text-sm">
                                 Username
@@ -72,9 +87,9 @@ export default function LoginPage() {
 
                 <div className="p-3">
                     <p className="text-accent-foreground text-center text-sm">
-                        Don't have an account ?
+                        Have an account ?
                         <Button asChild variant="link" className="px-2">
-                            <Link href="#">Create account</Link>
+                            <Link href="#">Sign In</Link>
                         </Button>
                     </p>
                 </div>
