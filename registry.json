@@ -14,7 +14,8 @@
       "files": [
         {
           "path": "app/preview/call-to-action/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/call-to-action.tsx"
         }
       ]
     },
@@ -29,7 +30,8 @@
       "files": [
         {
           "path": "app/preview/call-to-action/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/call-to-action.tsx"
         }
       ]
     },
@@ -44,7 +46,8 @@
       "files": [
         {
           "path": "app/preview/call-to-action/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/call-to-action.tsx"
         }
       ]
     },
@@ -60,7 +63,8 @@
       "files": [
         {
           "path": "app/preview/comparator/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing-comparator.tsx"
         }
       ]
     },
@@ -73,7 +77,8 @@
       "files": [
         {
           "path": "app/preview/content/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/content-1.tsx"
         }
       ]
     },
@@ -85,7 +90,8 @@
       "files": [
         {
           "path": "app/preview/content/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/content-2.tsx"
         }
       ]
     },
@@ -97,7 +103,8 @@
       "files": [
         {
           "path": "app/preview/content/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/content-3.tsx"
         }
       ]
     },
@@ -112,7 +119,8 @@
       "files": [
         {
           "path": "app/preview/content/four/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/content-4.tsx"
         }
       ]
     },
@@ -124,7 +132,8 @@
       "files": [
         {
           "path": "app/preview/content/five/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/content-5.tsx"
         }
       ]
     },
@@ -136,7 +145,8 @@
       "files": [
         {
           "path": "app/preview/content/six/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/content-6.tsx"
         }
       ]
     },
@@ -148,7 +158,8 @@
       "files": [
         {
           "path": "app/preview/content/seven/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/content-7.tsx"
         }
       ]
     },
@@ -161,7 +172,8 @@
       "files": [
         {
           "path": "app/preview/faqs/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/faqs.tsx"
         }
       ]
     },
@@ -177,7 +189,8 @@
       "files": [
         {
           "path": "app/preview/features/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/features-1.tsx"
         }
       ]
     },
@@ -192,7 +205,8 @@
       "files": [
         {
           "path": "app/preview/features/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/features-2.tsx"
         }
       ]
     },
@@ -207,7 +221,8 @@
       "files": [
         {
           "path": "app/preview/features/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/features-3.tsx"
         }
       ]
     },
@@ -219,7 +234,8 @@
       "files": [
         {
           "path": "app/preview/features/four/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/features-4.tsx"
         }
       ]
     },
@@ -231,7 +247,8 @@
       "files": [
         {
           "path": "app/preview/features/five/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/features-5.tsx"
         }
       ]
     },
@@ -243,7 +260,8 @@
       "files": [
         {
           "path": "app/preview/features/six/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/features-6.tsx"
         }
       ]
     },
@@ -255,7 +273,8 @@
       "files": [
         {
           "path": "app/preview/features/seven/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/features-7.tsx"
         }
       ]
     },
@@ -270,7 +289,8 @@
       "files": [
         {
           "path": "app/preview/features/eight/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/features-8.tsx"
         }
       ]
     },
@@ -289,7 +309,8 @@
       "files": [
         {
           "path": "app/preview/features/nine/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/features-9.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -305,7 +326,8 @@
       "files": [
         {
           "path": "app/preview/footer/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/footer.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -321,7 +343,8 @@
       "files": [
         {
           "path": "app/preview/footer/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/footer.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -342,7 +365,8 @@
       "files": [
         {
           "path": "app/preview/footer/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/footer.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -358,7 +382,8 @@
       "files": [
         {
           "path": "app/preview/footer/four/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/footer.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -379,7 +404,8 @@
       "files": [
         {
           "path": "app/preview/footer/five/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/footer.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -398,7 +424,8 @@
       "files": [
         {
           "path": "app/preview/hero-section/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-section.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -417,7 +444,8 @@
       "files": [
         {
           "path": "app/preview/hero-section/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-section.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -439,7 +467,8 @@
       "files": [
         {
           "path": "app/preview/hero-section/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-section.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -458,7 +487,8 @@
       "files": [
         {
           "path": "app/preview/hero-section/four/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/hero-section.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -479,7 +509,8 @@
       "files": [
         {
           "path": "app/preview/login/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/login.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -500,7 +531,8 @@
       "files": [
         {
           "path": "app/preview/login/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/login.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -521,7 +553,8 @@
       "files": [
         {
           "path": "app/preview/login/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/login.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -541,7 +574,8 @@
       "files": [
         {
           "path": "app/preview/sign-up/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/sign-up.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -562,7 +596,8 @@
       "files": [
         {
           "path": "app/preview/sign-up/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/sign-up.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -583,7 +618,8 @@
       "files": [
         {
           "path": "app/preview/sign-up/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/sign-up.tsx"
         },
         {
           "path": "components/logo.tsx",
@@ -599,7 +635,8 @@
       "files": [
         {
           "path": "app/preview/stats/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/stats.tsx"
         }
       ]
     },
@@ -611,7 +648,8 @@
       "files": [
         {
           "path": "app/preview/stats/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/stats-2.tsx"
         }
       ]
     },
@@ -623,7 +661,8 @@
       "files": [
         {
           "path": "app/preview/stats/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/stats-3.tsx"
         }
       ]
     },
@@ -635,7 +674,8 @@
       "files": [
         {
           "path": "app/preview/stats/four/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/stats-4.tsx"
         }
       ]
     },
@@ -647,7 +687,8 @@
       "files": [
         {
           "path": "app/preview/team/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/team.tsx"
         }
       ]
     },
@@ -659,7 +700,8 @@
       "files": [
         {
           "path": "app/preview/team/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/team.tsx"
         }
       ]
     },
@@ -675,7 +717,8 @@
       "files": [
         {
           "path": "app/preview/testimonials/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/testimonials.tsx"
         }
       ]
     },
@@ -691,7 +734,8 @@
       "files": [
         {
           "path": "app/preview/testimonials/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/testimonials.tsx"
         }
       ]
     },
@@ -703,7 +747,8 @@
       "files": [
         {
           "path": "app/preview/testimonials/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/testimonials.tsx"
         }
       ]
     },
@@ -718,7 +763,8 @@
       "files": [
         {
           "path": "app/preview/testimonials/four/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/testimonials.tsx"
         }
       ]
     },
@@ -734,7 +780,8 @@
       "files": [
         {
           "path": "app/preview/testimonials/five/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/testimonials.tsx"
         }
       ]
     },
@@ -750,7 +797,8 @@
       "files": [
         {
           "path": "app/preview/testimonials/six/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/testimonials.tsx"
         }
       ]
     },
@@ -762,7 +810,8 @@
       "files": [
         {
           "path": "app/preview/logo-cloud/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/logo-cloud.tsx"
         }
       ]
     },
@@ -778,7 +827,8 @@
       "files": [
         {
           "path": "app/preview/pricing/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing.tsx"
         }
       ]
     },
@@ -794,7 +844,8 @@
       "files": [
         {
           "path": "app/preview/pricing/one/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing.tsx"
         }
       ]
     },
@@ -810,7 +861,8 @@
       "files": [
         {
           "path": "app/preview/pricing/two/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing.tsx"
         }
       ]
     },
@@ -826,7 +878,8 @@
       "files": [
         {
           "path": "app/preview/pricing/three/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing.tsx"
         }
       ]
     },
@@ -841,7 +894,8 @@
       "files": [
         {
           "path": "app/preview/pricing/four/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing.tsx"
         }
       ]
     },
@@ -856,7 +910,8 @@
       "files": [
         {
           "path": "app/preview/pricing/five/page.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "components/pricing.tsx"
         }
       ]
     }

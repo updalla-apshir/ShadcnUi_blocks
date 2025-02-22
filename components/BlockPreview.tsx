@@ -21,7 +21,7 @@ export interface BlockPreviewProps {
     category: string
 }
 
-const radioItem = 'rounded-[calc(var(--radius)-2px)] duration-200 flex items-center justify-center h-7 px-2.5 gap-2 transition-[color] data-[state=checked]:bg-muted'
+const radioItem = 'rounded-(--radius) duration-200 flex items-center justify-center h-8 px-2.5 gap-2 transition-[color] data-[state=checked]:bg-muted'
 
 const DEFAULTSIZE = 100
 const SMSIZE = 30
@@ -70,9 +70,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                     <div className="-ml-3 flex items-center gap-3">
                         {code && (
                             <>
-                                <Separator orientation="vertical" className="hidden !h-4 lg:block" />
-
-                                <RadioGroup.Root className="rounded-(--radius) flex gap-0.5 border p-0.5">
+                                <RadioGroup.Root className="flex gap-0.5">
                                     <RadioGroup.Item onClick={() => setMode('preview')} aria-label="Block preview" value="100" checked={mode == 'preview'} className={radioItem}>
                                         <Eye className="size-3.5 sm:opacity-50" />
                                         <span className="hidden text-[13px] sm:block">Preview</span>
@@ -101,7 +99,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                     <div className="flex items-center gap-2">
                         {code && (
                             <>
-                                <Button onClick={cliCopy} size="sm" className="h-8 w-8 md:w-fit" variant="outline" aria-label="copy code">
+                                <Button onClick={cliCopy} size="sm" className="size-8 shadow-none md:w-fit" variant="outline" aria-label="copy code">
                                     {cliCopied ? <Check className="size-4" /> : <Terminal className="!size-3.5" />}
                                     <span className="hidden font-mono text-xs md:block">
                                         pnpm dlx shadcn@canary add {category}-{titleToNumber(title)}
