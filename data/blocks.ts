@@ -106,6 +106,13 @@ export const blocks: Block[] = [
         preview: '/preview/features/eight',
         code: loadCode('app/preview/features/eight/page.tsx'),
     },
+    {
+        slug: 'features',
+        title: 'nine',
+        category: 'features',
+        preview: '/preview/features/nine',
+        code: loadCode('app/preview/features/nine/page.tsx'),
+    },
 
     {
         slug: 'content',
