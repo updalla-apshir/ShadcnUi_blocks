@@ -1,17 +1,29 @@
 import { useState } from 'react';
 import { sendGAEvent } from '@next/third-parties/google'
 
-export const useCopyToClipboard = (text: string, title:string, category:string, mode:"code"|"preview") => {
+type EventName = 'block_copy' | 'block_cli_copy';
+
+interface BlockProps {
+    title: string;
+    category: string;
+    code: string;
+    eventName: EventName;
+}
+
+export const useCopyToClipboard = (block:BlockProps) => {
+
+    const { title, category, code, eventName } = block;
+
     const [copied, setCopied] = useState(false);
 
     const copy = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(code);
         setCopied(true);
-        sendGAEvent('event', 'block_copy', {
+
+        sendGAEvent('event', eventName, {
             block_title: title,
             block_category: category,
-            block_mode: mode,
         })
         setTimeout(() => {
             setCopied(false);

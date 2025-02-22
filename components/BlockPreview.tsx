@@ -2,16 +2,17 @@
 
 import type React from 'react'
 import { useState, useRef, useEffect } from 'react'
-import { Check, Code2, Copy, Eye, Maximize } from 'lucide-react'
+import { Check, Code2, Copy, Eye, Maximize, Terminal } from 'lucide-react'
 import { Panel, PanelGroup, PanelResizeHandle, type ImperativePanelGroupHandle } from 'react-resizable-panels'
 import { Separator } from '@/components/ui/separator'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import { useCopyToClipboard } from '@/hooks/useClipboard'
 import { useMedia } from 'use-media'
 import { Button } from './ui/button'
-import { cn } from '@/lib/utils'
+import { cn, titleToNumber } from '@/lib/utils'
 import CodeBlock from './code-block'
 import Link from 'next/link'
+import { OpenInV0Button } from './open-in-v0'
 
 export interface BlockPreviewProps {
     code: string
@@ -20,7 +21,7 @@ export interface BlockPreviewProps {
     category: string
 }
 
-const radioItem = 'rounded-full duration-200 flex border border-transparent items-center justify-center h-7 px-2.5 gap-2 transition-[color] data-[state=checked]:border-zinc-300 dark:data-[state=checked]:border-zinc-700/75 data-[state=checked]:bg-background'
+const radioItem = 'rounded-[calc(var(--radius)-2px)] duration-200 flex items-center justify-center h-7 px-2.5 gap-2 transition-[color] data-[state=checked]:bg-muted'
 
 const DEFAULTSIZE = 100
 const SMSIZE = 30
@@ -33,7 +34,11 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
     const [iframeHeight, setIframeHeight] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
 
-    const { copied, copy } = useCopyToClipboard(code, title, category, mode)
+    const terminalCode = `pnpm dlx shadcn@canary add https://nsui.irung.me/r/${category}-${titleToNumber(title)}.json`
+
+    const { copied, copy } = useCopyToClipboard({ code, title, category, eventName: 'block_copy' })
+    const { copied: cliCopied, copy: cliCopy } = useCopyToClipboard({ code: terminalCode, title, category, eventName: 'block_cli_copy' })
+
     const ref = useRef<ImperativePanelGroupHandle>(null)
     const isLarge = useMedia('(min-width: 1024px)')
 
@@ -61,21 +66,21 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                     <div className="to-(--color-border) absolute bottom-0 right-0 top-0 w-px bg-gradient-to-b from-transparent to-75%"></div>
                 </div>
 
-                <div className="relative z-10 mx-auto flex max-w-7xl justify-between py-1.5 pl-8 pr-6 md:py-2 lg:pl-6 lg:pr-2">
+                <div className="relative z-10 mx-auto flex max-w-7xl justify-between py-1.5 pl-8 pr-6 [--color-border:var(--color-zinc-200)] md:py-2 lg:pl-6 lg:pr-2 dark:[--color-border:var(--color-zinc-800)]">
                     <div className="-ml-3 flex items-center gap-3">
                         {code && (
                             <>
                                 <Separator orientation="vertical" className="hidden !h-4 lg:block" />
 
-                                <RadioGroup.Root className="bg-muted flex gap-0.5 rounded-full p-0.5">
+                                <RadioGroup.Root className="rounded-(--radius) flex gap-0.5 border p-0.5">
                                     <RadioGroup.Item onClick={() => setMode('preview')} aria-label="Block preview" value="100" checked={mode == 'preview'} className={radioItem}>
-                                        <Eye className="size-3.5 opacity-50" />
-                                        <span className="text-[13px]">Preview</span>
+                                        <Eye className="size-3.5 sm:opacity-50" />
+                                        <span className="hidden text-[13px] sm:block">Preview</span>
                                     </RadioGroup.Item>
 
                                     <RadioGroup.Item onClick={() => setMode('code')} aria-label="Code" value="0" checked={mode == 'code'} className={radioItem}>
-                                        <Code2 className="size-3.5 opacity-50" />
-                                        <span className="text-[13px]">Code</span>
+                                        <Code2 className="size-3.5 sm:opacity-50" />
+                                        <span className="hidden text-[13px] sm:block">Code</span>
                                     </RadioGroup.Item>
                                 </RadioGroup.Root>
 
@@ -96,6 +101,14 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                     <div className="flex items-center gap-2">
                         {code && (
                             <>
+                                <Button onClick={cliCopy} size="sm" className="h-8 w-8 md:w-fit" variant="outline" aria-label="copy code">
+                                    {cliCopied ? <Check className="size-4" /> : <Terminal className="!size-3.5" />}
+                                    <span className="hidden font-mono text-xs md:block">
+                                        pnpm dlx shadcn@canary add {category}-{titleToNumber(title)}
+                                    </span>
+                                </Button>
+                                <Separator className="!h-4" orientation="vertical" />
+                                <OpenInV0Button {...{ title, category }} block={`${category}-${titleToNumber(title)}`} />
                                 <Separator className="!h-4" orientation="vertical" />
 
                                 <Button onClick={copy} size="sm" variant="ghost" aria-label="copy code" className="size-8">
