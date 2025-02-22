@@ -94,8 +94,8 @@ const Map = () => {
     const viewBox = `0 0 120 60`
     return (
         <svg viewBox={viewBox} style={{ background: svgOptions.backgroundColor }}>
-            {points.map((point) => (
-                <circle cx={point.x} cy={point.y} r={svgOptions.radius} fill={svgOptions.color} />
+            {points.map((point, index) => (
+                <circle key={index} cx={point.x} cy={point.y} r={svgOptions.radius} fill={svgOptions.color} />
             ))}
         </svg>
     )
