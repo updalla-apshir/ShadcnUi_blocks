@@ -103,14 +103,12 @@ export default function HeroSection() {
                                     </ul>
                                 </div>
                             </div>
-
-                            <div className="relative inset-x-0 right-6 mx-auto ml-auto mt-12 h-fit max-w-md [--ui-shadow-border:var(--ui-border-color)] lg:absolute lg:inset-y-16 lg:mr-0 lg:mt-0">
-                                <Image src="/edit-bar.png" className="rounded-(--radius) relative z-10 border bg-white p-0.5" alt="project illustration" width={1132} height={91} />
-
-                                <div className="rounded-(--radius) relative z-10 mt-4 overflow-hidden bg-white">
-                                    <Image src="/ar.png" alt="project illustration" width={1600} height={1356} />
-                                    <Image src="/cat.png" alt="project illustration" width={1600} height={444} />
-                                </div>
+                        </div>
+                        <div className="absolute inset-0 -mx-4 rounded-3xl p-3 lg:col-span-3">
+                            <div className="relative">
+                                <div className="bg-radial-[at_65%_25%] to-background z-1 -inset-17 absolute from-transparent to-40%"></div>
+                                <Image className="hidden dark:block" src="/music.png" alt="app illustration" width={2796} height={2008} />
+                                <Image className="dark:hidden" src="/music-light.png" alt="app illustration" width={2796} height={2008} />
                             </div>
                         </div>
                     </div>

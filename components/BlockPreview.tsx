@@ -2,7 +2,7 @@
 
 import type React from 'react'
 import { useState, useRef, useEffect } from 'react'
-import { Check, Code2, Copy, Eye } from 'lucide-react'
+import { Check, Code2, Copy, Eye, Maximize } from 'lucide-react'
 import { Panel, PanelGroup, PanelResizeHandle, type ImperativePanelGroupHandle } from 'react-resizable-panels'
 import { Separator } from '@/components/ui/separator'
 import * as RadioGroup from '@radix-ui/react-radio-group'
@@ -11,6 +11,7 @@ import { useMedia } from 'use-media'
 import { Button } from './ui/button'
 import { cn } from '@/lib/utils'
 import CodeBlock from './code-block'
+import Link from 'next/link'
 
 export interface BlockPreviewProps {
     code: string
@@ -29,6 +30,8 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
     const [width, setWidth] = useState(DEFAULTSIZE)
     const [mode, setMode] = useState<'preview' | 'code'>('preview')
     const [iframeHeight, setIframeHeight] = useState(0)
+    const [isLoading, setIsLoading] = useState(true)
+
     const { copied, copy } = useCopyToClipboard(code)
     const ref = useRef<ImperativePanelGroupHandle>(null)
     const isLarge = useMedia('(min-width: 1024px)')
@@ -38,9 +41,8 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
     useEffect(() => {
         const iframe = iframeRef.current
         const handleLoad = () => {
+            setIsLoading(false)
             const contentHeight = iframe!.contentWindow!.document.body.scrollHeight
-
-            iframe!.style.height = `${contentHeight}px`
             setIframeHeight(contentHeight)
         }
 
@@ -77,6 +79,14 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                                 </RadioGroup.Root>
 
                                 <Separator orientation="vertical" className="hidden !h-4 lg:block" />
+
+                                <Button asChild variant="ghost" size="sm" className="size-8">
+                                    <Link href={preview} passHref target="_blank">
+                                        <Maximize className="size-4" />
+                                    </Link>
+                                </Button>
+
+                                <Separator orientation="vertical" className="hidden !h-4 lg:block" />
                             </>
                         )}
                         <span className="text-muted-foreground hidden text-sm lg:block">{width < MDSIZE ? 'Mobile' : width < LGSIZE ? 'Tablet' : 'Desktop'}</span>{' '}
@@ -106,19 +116,26 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                     <div className={cn('bg-white dark:bg-transparent', mode == 'code' && 'hidden')}>
                         <PanelGroup direction="horizontal" tagName="div" ref={ref}>
                             <Panel
+                                id={`block-${title}`}
+                                order={1}
                                 onResize={(size) => {
                                     setWidth(Number(size))
                                 }}
                                 defaultSize={DEFAULTSIZE}
                                 minSize={SMSIZE}
                                 className="h-fit border-x">
-                                <iframe ref={iframeRef} loading="lazy" title={title} className="block h-full min-h-[45rem] w-full" src={preview} id={`block-${title}`} />
+                                <iframe loading="lazy" allowFullScreen ref={iframeRef} title={title} height={iframeHeight} className="h-(--iframe-height) @starting:opacity-0 @starting:blur-xl block min-h-56 w-full duration-200 will-change-auto" src={preview} id={`block-${title}`} style={{ '--iframe-height': `${iframeHeight}px` } as React.CSSProperties} />
+                                {isLoading && (
+                                    <div className="bg-background absolute inset-0 right-2 flex items-center justify-center border-x">
+                                        <div className="border-primary size-6 animate-spin rounded-full border-2 border-t-transparent" />
+                                    </div>
+                                )}
                             </Panel>
 
                             {isLarge && (
                                 <>
                                     <PanelResizeHandle className="relative w-2 before:absolute before:inset-0 before:m-auto before:h-12 before:w-1 before:rounded-full before:bg-zinc-300 before:transition-[height,background] hover:before:h-16 hover:before:bg-zinc-400 focus:before:bg-zinc-400 dark:before:bg-zinc-600 dark:hover:before:bg-zinc-500 dark:focus:before:bg-zinc-400" />
-                                    <Panel defaultSize={100 - DEFAULTSIZE} className="-mr-[0.5px] ml-px"></Panel>
+                                    <Panel id={`code-${title}`} order={2} defaultSize={100 - DEFAULTSIZE} className="-mr-[0.5px] ml-px"></Panel>
                                 </>
                             )}
                         </PanelGroup>
