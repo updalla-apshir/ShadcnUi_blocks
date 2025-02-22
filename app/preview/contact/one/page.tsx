@@ -14,7 +14,7 @@ export default function ContactSection() {
           We'll help you find the right plan and pricing for your business.
         </p>
 
-        <Card className="bg-ui tls-shadow-md rounded-card mx-auto mt-12 max-w-lg p-8 shadow-gray-950/[0.03] sm:p-16">
+        <Card className="bg-ui tls-shadow-md p-8 rounded-card mx-auto mt-12 max-w-lg shadow-gray-950/[0.03] sm:p-16">
           <CardHeader>
             <CardTitle className="text-title text-xl font-semibold">Let's get you to the right place</CardTitle>
             <p className="mt-4 text-sm">
@@ -34,7 +34,7 @@ export default function ContactSection() {
                   required
                   name="name"
                   id="name"
-                  className="sz-md variant-mixed"
+                  className="input sz-md variant-mixed"
                 />
               </div>
 
@@ -47,7 +47,7 @@ export default function ContactSection() {
                   required
                   name="email"
                   id="email"
-                  className="sz-md variant-mixed"
+                  className="input sz-md variant-mixed"
                 />
               </div>
 
@@ -72,7 +72,7 @@ export default function ContactSection() {
                     <path d="m7 9 5-5 5 5"></path>
                   </svg>
                   <Select>
-                    <SelectTrigger className="variant-mixed sz-md">
+                    <SelectTrigger className="input variant-mixed sz-md appearance-none">
                       <SelectValue placeholder="Select Country/Region" />
                     </SelectTrigger>
                     <SelectContent>
@@ -92,7 +92,7 @@ export default function ContactSection() {
                   type="url"
                   name="website"
                   id="website"
-                  className="sz-md variant-mixed"
+                  className="input sz-md variant-mixed"
                 />
                 <span className="text-caption inline-block text-sm">Must start with 'https'</span>
               </div>
@@ -118,7 +118,7 @@ export default function ContactSection() {
                     <path d="m7 9 5-5 5 5"></path>
                   </svg>
                   <Select>
-                    <SelectTrigger className="variant-mixed sz-md">
+                    <SelectTrigger className="input variant-mixed sz-md appearance-none">
                       <SelectValue placeholder="Select Job Function" />
                     </SelectTrigger>
                     <SelectContent>
@@ -142,7 +142,7 @@ export default function ContactSection() {
                 />
               </div>
 
-              <Button className="variant-primary sz-sm ml-auto w-fit">Submit</Button>
+              <Button className="btn variant-primary sz-sm ml-auto w-fit">Submit</Button>
             </div>
           </CardContent>
         </Card>
