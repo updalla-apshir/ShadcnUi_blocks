@@ -17,6 +17,7 @@ export interface BlockPreviewProps {
     code: string
     preview: string
     title: string
+    category: string
 }
 
 const radioItem = 'rounded-full duration-200 flex border border-transparent items-center justify-center h-7 px-2.5 gap-2 transition-[color] data-[state=checked]:border-zinc-300 dark:data-[state=checked]:border-zinc-700/75 data-[state=checked]:bg-background'
@@ -26,13 +27,13 @@ const SMSIZE = 30
 const MDSIZE = 62
 const LGSIZE = 82
 
-export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title }) => {
+export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title, category }) => {
     const [width, setWidth] = useState(DEFAULTSIZE)
     const [mode, setMode] = useState<'preview' | 'code'>('preview')
     const [iframeHeight, setIframeHeight] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
 
-    const { copied, copy } = useCopyToClipboard(code)
+    const { copied, copy } = useCopyToClipboard(code, title, category, mode)
     const ref = useRef<ImperativePanelGroupHandle>(null)
     const isLarge = useMedia('(min-width: 1024px)')
 
