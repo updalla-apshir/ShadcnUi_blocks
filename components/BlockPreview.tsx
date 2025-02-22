@@ -124,10 +124,10 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                                 defaultSize={DEFAULTSIZE}
                                 minSize={SMSIZE}
                                 className="h-fit border-x">
-                                <iframe loading="lazy" allowFullScreen ref={iframeRef} title={title} height={iframeHeight} className="h-(--iframe-height) block min-h-96 w-full duration-200 will-change-auto" src={preview} id={`block-${title}`} style={{ '--iframe-height': `${iframeHeight}px` } as React.CSSProperties} />
+                                <iframe loading="lazy" allowFullScreen ref={iframeRef} title={title} height={iframeHeight} className="h-(--iframe-height) @starting:opacity-0 @starting:blur-xl block min-h-56 w-full duration-200 will-change-auto" src={preview} id={`block-${title}`} style={{ '--iframe-height': `${iframeHeight}px` } as React.CSSProperties} />
                                 {isLoading && (
                                     <div className="bg-background absolute inset-0 right-2 flex items-center justify-center border-x">
-                                        <div className="border-primary h-8 w-8 animate-spin rounded-full border-2 border-t-transparent" />
+                                        <div className="border-primary size-6 animate-spin rounded-full border-2 border-t-transparent" />
                                     </div>
                                 )}
                             </Panel>
