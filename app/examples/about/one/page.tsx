@@ -63,7 +63,7 @@ export default function HeroSection() {
                         <img className="rounded-(--radius) grayscale" src="https://images.unsplash.com/photo-1530099486328-e021101a494a?q=80&w=2747&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="team image" height="" width="" loading="lazy" />
 
                         <div className="mx-auto grid max-w-lg gap-6 md:gap-12">
-                            <span className="text-muted-foreground">Our Mission</span>
+                            <span className="text-muted-foreground text-sm">Our Mission</span>
                             <h2 className="text-4xl font-medium">The Lyra ecosystem brings together our models, products and platforms.</h2>
                             <div className="space-y-6">
                                 <p>Lyra is evolving to be more than just the models. It supports an entire ecosystem — from products to the APIs and platforms helping developers and businesses innovate.</p>
@@ -79,7 +79,7 @@ export default function HeroSection() {
                     </div>
                 </section>
 
-                <section className="py-16 md:py-32">
+                <section className="px-6 py-16 md:py-32">
                     <div className="mx-auto max-w-lg">
                         <h2 className="mb-8 text-4xl font-medium md:mb-16">Our Story</h2>
                         <div aria-hidden className="relative -mx-4 mb-8 aspect-video md:mb-16">
