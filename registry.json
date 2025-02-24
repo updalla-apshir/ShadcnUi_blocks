@@ -914,6 +914,48 @@
           "target": "components/pricing.tsx"
         }
       ]
+    },
+    {
+      "name": "contact-1",
+      "type": "registry:block",
+      "title": "Contact Block 1",
+      "description": "Shadcn/ui website contact section",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "textarea",
+        "select",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "app/preview/contact/one/page.tsx",
+          "type": "registry:component",
+          "target": "components/contact.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-2",
+      "type": "registry:block",
+      "title": "Contact Block 2",
+      "description": "Shadcn/ui website contact section",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "textarea",
+        "select",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "app/preview/contact/two/page.tsx",
+          "type": "registry:component",
+          "target": "components/contact.tsx"
+        }
+      ]
     }
   ]
 }
