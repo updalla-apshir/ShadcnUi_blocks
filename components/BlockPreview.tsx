@@ -15,10 +15,11 @@ import Link from 'next/link'
 import { OpenInV0Button } from './open-in-v0'
 
 export interface BlockPreviewProps {
-    code: string
+    code?: string
     preview: string
     title: string
     category: string
+    previewOnly?: boolean
 }
 
 const radioItem = 'rounded-(--radius) duration-200 flex items-center justify-center h-8 px-2.5 gap-2 transition-[color] data-[state=checked]:bg-muted'
@@ -28,7 +29,7 @@ const SMSIZE = 30
 const MDSIZE = 62
 const LGSIZE = 82
 
-export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title, category }) => {
+export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title, category, previewOnly }) => {
     const [width, setWidth] = useState(DEFAULTSIZE)
     const [mode, setMode] = useState<'preview' | 'code'>('preview')
     const [iframeHeight, setIframeHeight] = useState(0)
@@ -36,7 +37,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
 
     const terminalCode = `pnpm dlx shadcn@canary add https://nsui.irung.me/r/${category}-${titleToNumber(title)}.json`
 
-    const { copied, copy } = useCopyToClipboard({ code, title, category, eventName: 'block_copy' })
+    const { copied, copy } = useCopyToClipboard({ code: code as string, title, category, eventName: 'block_copy' })
     const { copied: cliCopied, copy: cliCopy } = useCopyToClipboard({ code: terminalCode, title, category, eventName: 'block_cli_copy' })
 
     const ref = useRef<ImperativePanelGroupHandle>(null)
@@ -83,16 +84,21 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                                 </RadioGroup.Root>
 
                                 <Separator orientation="vertical" className="hidden !h-4 lg:block" />
-
-                                <Button asChild variant="ghost" size="sm" className="size-8">
-                                    <Link href={preview} passHref target="_blank">
-                                        <Maximize className="size-4" />
-                                    </Link>
-                                </Button>
-
-                                <Separator orientation="vertical" className="hidden !h-4 lg:block" />
                             </>
                         )}
+                        {previewOnly && (
+                            <>
+                                {' '}
+                                <span className="ml-2 text-sm capitalize">{title}</span>
+                                <Separator orientation="vertical" className="!h-4" />{' '}
+                            </>
+                        )}
+                        <Button asChild variant="ghost" size="sm" className="size-8">
+                            <Link href={preview} passHref target="_blank">
+                                <Maximize className="size-4" />
+                            </Link>
+                        </Button>
+                        <Separator orientation="vertical" className="hidden !h-4 lg:block" />
                         <span className="text-muted-foreground hidden text-sm lg:block">{width < MDSIZE ? 'Mobile' : width < LGSIZE ? 'Tablet' : 'Desktop'}</span>{' '}
                     </div>
 
@@ -153,7 +159,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                         </PanelGroup>
                     </div>
 
-                    <div className="bg-white dark:bg-transparent">{mode == 'code' && <CodeBlock code={code} lang="tsx" maxHeight={iframeHeight} />}</div>
+                    <div className="bg-white dark:bg-transparent">{mode == 'code' && <CodeBlock code={code as string} lang="tsx" maxHeight={iframeHeight} />}</div>
                 </div>
             </div>
         </section>

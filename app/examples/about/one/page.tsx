@@ -49,8 +49,8 @@ export default function HeroSection() {
             <main>
                 <section className="pt-16 md:pt-32">
                     <div aria-hidden>
-                        <div className="bg-linear-to-t from-background -z-9 absolute inset-x-0 top-0 h-2/3 to-transparent"></div>
-                        <div className="absolute top-0 -z-10 h-2/3 w-full bg-[radial-gradient(var(--color-foreground)_1px,transparent_1px)] bg-[size:56px_56px] opacity-45 dark:opacity-20"></div>
+                        <div className="bg-linear-to-t from-background -z-9 absolute inset-x-0 top-0 h-2/3 max-h-96 to-transparent"></div>
+                        <div className="absolute top-0 -z-10 h-2/3 max-h-96 w-full bg-[radial-gradient(var(--color-foreground)_1px,transparent_1px)] bg-[size:56px_56px] opacity-45"></div>
                     </div>
                     <div className="mx-auto max-w-5xl px-6 pt-32 lg:px-0">
                         <div className="mx-auto max-w-2xl space-y-6 text-center">
@@ -82,7 +82,7 @@ export default function HeroSection() {
 
                 <section className="py-16 md:py-32">
                     <div className="mx-auto max-w-lg">
-                        <h2 className="mb-8 text-4xl font-medium md:mb-16 lg:text-5xl">Our Story</h2>
+                        <h2 className="mb-8 text-4xl font-medium md:mb-16">Our Story</h2>
                         <div aria-hidden className="relative -mx-4 mb-8 aspect-video md:mb-16">
                             <div className="bg-background absolute inset-0 m-auto size-fit p-8">
                                 <LogoStroke className="h-fit w-20 text-blue-500" />
@@ -99,7 +99,7 @@ export default function HeroSection() {
 
                 <section className="py-16 md:py-32">
                     <div className="mx-auto max-w-lg px-6 lg:px-0">
-                        <h2 className="mb-8 text-4xl font-medium md:mb-16 lg:text-5xl">Our team</h2>
+                        <h2 className="mb-8 text-4xl font-medium md:mb-16">Our team</h2>
 
                         <div>
                             <h3 className="mb-6 text-lg font-medium">Leadership</h3>
