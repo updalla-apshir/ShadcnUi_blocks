@@ -20,7 +20,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <BlockPreview preview="/examples/hero-section/one" code={`<div />`} category="pricing" title="title 1" />
+            <BlockPreview preview="/examples/about/one" code={`<div />`} category="pricing" title="title 1" />
             <SiteFooter />
         </>
     )
