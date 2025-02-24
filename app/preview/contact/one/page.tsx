@@ -18,7 +18,7 @@ export default function ContactSection() {
                         <p className="mt-4 text-sm">Reach out to our sales team! We’re eager to learn more about how you plan to use our application.</p>
                     </div>
 
-                    <div className="**:[&>label]:block mt-12 space-y-6 *:space-y-3">
+                    <form action="" className="**:[&>label]:block mt-12 space-y-6 *:space-y-3">
                         <div>
                             <Label htmlFor="name">Full name</Label>
                             <Input type="text" id="name" required />
@@ -70,7 +70,7 @@ export default function ContactSection() {
                         </div>
 
                         <Button>Submit</Button>
-                    </div>
+                    </form>
                 </Card>
             </div>
         </section>
