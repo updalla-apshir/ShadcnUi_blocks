@@ -20,17 +20,17 @@ export default function ContactSection() {
 
             <div className="mt-12 space-y-6">
               <div>
-                <Label htmlFor="name">Full name</Label>
+                <Label htmlFor="name" className="space-y-2">Full name</Label>
                 <Input type="text" id="name" required />
               </div>
 
               <div>
-                <Label htmlFor="email">Work Email</Label>
+                <Label htmlFor="email" className="space-y-2">Work Email</Label>
                 <Input type="email" id="email" required />
               </div>
 
               <div>
-                <Label htmlFor="country">Country/Region</Label>
+                <Label htmlFor="country" className="space-y-2">Country/Region</Label>
                 <Select>
                   <SelectTrigger>
                     <SelectValue placeholder="Select Country/Region" />
@@ -44,13 +44,13 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <Label htmlFor="website">Company Website</Label>
+                <Label htmlFor="website" className="space-y-2">Company Website</Label>
                 <Input type="url" id="website" />
                 <span className="text-muted-foreground inline-block text-sm">Must start with 'https'</span>
               </div>
 
               <div>
-                <Label htmlFor="job">Job function</Label>
+                <Label htmlFor="job" className="space-y-2">Job function</Label>
                 <Select>
                   <SelectTrigger>
                     <SelectValue placeholder="Select Job Function" />
@@ -65,7 +65,7 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <Label htmlFor="msg">Message</Label>
+                <Label htmlFor="msg" className="space-y-2">Message</Label>
                 <Textarea id="msg" rows={3} />
               </div>
 

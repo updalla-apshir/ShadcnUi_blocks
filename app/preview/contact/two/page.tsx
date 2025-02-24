@@ -4,6 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import Link from "next/link";
 
 export default function ContactSection() {
   return (
@@ -14,22 +15,23 @@ export default function ContactSection() {
         </h1>
         
         <div className="grid divide-y border md:grid-cols-2 md:gap-4 md:divide-x md:divide-y-0">
-          <div className="p-(--card-padding)--card-padding p-6">
+          <div className="flex flex-col justify-between space-y-8 p-6 sm:p-12">
             <div>
               <h3 className="mb-3 text-lg font-semibold">Collaborate</h3>
-              <a href="mailto:hello@tailus.io" className="text-lg text-blue-600 hover:underline">hello@tailus.io</a>
+              <Link href="mailto:hello@tailus.io" className="text-lg text-blue-600 hover:underline">hello@tailus.io</Link>
               <p className="mt-3 text-sm">+243 000 000 000</p>
             </div>
           </div>
-          <div className="p-(--card-padding)--card-padding p-6">
+          <div className="flex flex-col justify-between space-y-8 p-6 sm:p-12">
             <div>
               <h3 className="mb-3 text-lg font-semibold">Press</h3>
-              <a href="mailto:press@tailus.io" className="text-lg text-blue-600 hover:underline">press@tailus.io</a>
+              <Link href="mailto:press@tailus.io" className="text-lg text-blue-600 hover:underline">press@tailus.io</Link>
               <p className="mt-3 text-sm">+243 000 000 000</p>
             </div>
           </div>
         </div>
-        <div className="h-3 invert [--stripes-color:theme(colors.white/0.15)] [background-image:linear-gradient(-45deg,var(--stripes-color)_25%,transparent_25%,transparent_50%,var(--stripes-color)_50%,var(--stripes-color)_75%,transparent_75%,transparent)] [background-size:5px_5px] dark:invert-0"></div>
+        
+        <div className="h-3 invert [--stripes-color:color-mix(in_oklab, var(--color-white)5%,transparent)] [background-image:linear-gradient(-45deg,var(--stripes-color)_25%,transparent_25%,transparent_50%,var(--stripes-color)_50%,var(--stripes-color)_75%,transparent_75%,transparent)] [background-size:5px_5px] dark:invert-0"></div>
         <div className="border px-4 py-12 lg:px-0 lg:py-24">
           <Card className="mx-auto max-w-lg p-8 sm:p-16">
             <h3 className="text-xl font-semibold">Let's get you to the right place</h3>
@@ -39,15 +41,15 @@ export default function ContactSection() {
 
             <div className="mt-12 space-y-6">
               <div>
-                <Label htmlFor="name">Full name</Label>
+                <Label htmlFor="name" className="space-y-2">Full name</Label>
                 <Input type="text" id="name" required />
               </div>
               <div>
-                <Label htmlFor="email">Work Email</Label>
+                <Label htmlFor="email" className="space-y-2">Work Email</Label>
                 <Input type="email" id="email" required />
               </div>
               <div>
-                <Label htmlFor="country">Country/Region</Label>
+                <Label htmlFor="country" className="space-y-2">Country/Region</Label>
                 <Select>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a country" />
@@ -60,11 +62,11 @@ export default function ContactSection() {
                 </Select>
               </div>
               <div>
-                <Label htmlFor="website">Company Website</Label>
+                <Label htmlFor="website" className="space-y-2">Company Website</Label>
                 <Input type="url" id="website" />
               </div>
               <div>
-                <Label htmlFor="job">Job function</Label>
+                <Label htmlFor="job" className="space-y-2">Job function</Label>
                 <Select>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a job function" />
@@ -78,7 +80,7 @@ export default function ContactSection() {
                 </Select>
               </div>
               <div>
-                <Label htmlFor="msg">Message</Label>
+                <Label htmlFor="msg" className="space-y-2">Message</Label>
                 <Textarea id="msg" rows={3} />
               </div>
               <Button>Submit</Button>
