@@ -104,7 +104,7 @@ export default function HeroSection() {
                                 <Swiper slidesPerView={1} pagination={{ clickable: true }} loop autoplay={{ delay: 5000 }} modules={[Autoplay, EffectCoverflow]}>
                                     <SwiperSlide className="px-2">
                                         <div className="bg-background rounded-(--radius) h-44 max-w-lg border p-9">
-                                            <div className="mx-auto h-12 w-fit">
+                                            <div className="mx-auto h-fit w-full">
                                                 <NetlifyLogo />
                                             </div>
                                             <p className="mt-6 text-center text-lg font-medium">30% Increase in revenue</p>
@@ -112,7 +112,7 @@ export default function HeroSection() {
                                     </SwiperSlide>
                                     <SwiperSlide className="px-2">
                                         <div className="bg-background rounded-(--radius) h-44 max-w-lg border p-9">
-                                            <div className="mx-auto h-12 w-fit">
+                                            <div className="mx-auto h-fit w-full">
                                                 <AstroLogo />
                                             </div>
                                             <p className="mt-6 text-center text-lg font-medium">45% Increase in revenue</p>
@@ -120,7 +120,7 @@ export default function HeroSection() {
                                     </SwiperSlide>
                                     <SwiperSlide className="px-2">
                                         <div className="bg-background rounded-(--radius) h-44 max-w-lg border p-9">
-                                            <div className="mx-auto h-12 w-max">
+                                            <div className="mx-auto h-fit w-full">
                                                 <WorkOsLogo />
                                             </div>
                                             <p className="mt-6 text-center text-lg font-medium">60% Increase in revenue</p>
@@ -138,7 +138,7 @@ export default function HeroSection() {
 
 const WorkOsLogo = () => {
     return (
-        <svg className="my-auto h-8 w-fit" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 251.8 48">
+        <svg className="m-auto h-8" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 251.8 48">
             <g>
                 <path
                     fill="currentColor"
@@ -153,7 +153,7 @@ const WorkOsLogo = () => {
 
 const AstroLogo = () => {
     return (
-        <svg className="mx-auto h-12 w-fit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 160" fill="none">
+        <svg className="mx-auto h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 160" fill="none">
             <path
                 d="M65.7846 121.175C61.2669 117.045 59.9481 108.368 61.8303 102.082C65.0939 106.045 69.6158 107.301 74.2997 108.009C81.5305 109.103 88.6318 108.694 95.349 105.389C96.1174 105.011 96.8275 104.507 97.6672 103.998C98.2974 105.826 98.4615 107.672 98.2413 109.551C97.706 114.127 95.4288 117.662 91.8069 120.341C90.3586 121.413 88.8261 122.371 87.3303 123.382C82.7349 126.487 81.4917 130.129 83.2184 135.427C83.2594 135.556 83.2961 135.685 83.389 136C81.0427 134.95 79.3289 133.421 78.023 131.411C76.6438 129.289 75.9876 126.942 75.9531 124.403C75.9358 123.167 75.9358 121.92 75.7696 120.702C75.3638 117.732 73.9694 116.402 71.3426 116.325C68.6467 116.247 66.5141 117.913 65.9486 120.538C65.9054 120.739 65.8428 120.938 65.7803 121.172L65.7846 121.175Z"
                 fill="currentColor"
@@ -193,7 +193,7 @@ const AstroLogo = () => {
 const NetlifyLogo = () => {
     return (
         <>
-            <svg className="mx-auto h-12 w-fit dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 209" fill="none">
+            <svg className="mx-auto h-12 dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 209" fill="none">
                 <g clipPath="url(#clip0_235_8)">
                     <path d="M117.436 207.036V154.604L118.529 153.51H129.452L130.545 154.604V207.036L129.452 208.13H118.529L117.436 207.036Z" fill="#05BDBA" />
                     <path d="M117.436 53.5225V1.09339L118.529 0H129.452L130.545 1.09339V53.5225L129.452 54.6159H118.529L117.436 53.5225Z" fill="#05BDBA" />
@@ -218,7 +218,7 @@ const NetlifyLogo = () => {
                     </clipPath>
                 </defs>
             </svg>
-            <svg className="mx-auto hidden h-12 w-fit dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 209" fill="none">
+            <svg className="mx-auto hidden h-12 dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 209" fill="none">
                 <g clipPath="url(#clip0_235_26)">
                     <path d="M117.436 207.036V154.604L118.529 153.51H129.452L130.545 154.604V207.036L129.452 208.13H118.529L117.436 207.036Z" fill="#32E6E2" />
                     <path d="M117.436 53.5225V1.09339L118.529 0H129.452L130.545 1.09339V53.5225L129.452 54.6159H118.529L117.436 53.5225Z" fill="#32E6E2" />
