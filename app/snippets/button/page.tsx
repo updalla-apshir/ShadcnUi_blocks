@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ButtonsPage() {
     return (
-        <div className="*:hover:bg-background *:has-[[data-state=open]]:bg-background grid divide-x divide-y divide-dashed bg-zinc-50 *:relative *:flex *:aspect-video *:items-center *:justify-center *:p-12 sm:grid-cols-2 lg:grid-cols-3 dark:bg-zinc-900/50">
+        <div className="*:has-[[data-state=open]]:bg-muted/25 *:hover:bg-muted/25 grid grid-cols-2 divide-x divide-y divide-dashed *:relative *:flex *:aspect-square *:items-center *:justify-center *:p-12 sm:grid-cols-2 lg:grid-cols-3 lg:*:aspect-video">
             <div className="group [--color-primary:var(--color-blue-600)] dark:[--color-primary-foreground:var(--color-white)]">
                 <Button className="from-primary to-primary/85 text-primary-foreground border border-zinc-950/25 bg-gradient-to-t shadow-md shadow-zinc-950/20 ring-1 ring-inset ring-white/20 transition-[filter] duration-200 hover:brightness-110 active:brightness-90 dark:border-white/20 dark:ring-transparent">
                     <span>Primary</span>
@@ -87,7 +87,7 @@ export default function ButtonsPage() {
                 </div>
             </div>
             <div className="group">
-                <Button variant="outline" className="shadow-xs bg-linear-to-t hover:to-muted to-background from-muted dark:from-muted/50 dark:border-border border border-zinc-300 shadow-zinc-950/10 ring-0 duration-200">
+                <Button variant="outline" className="shadow-xs bg-linear-to-t hover:to-muted/50 to-background from-muted dark:from-muted/50 dark:border-border border border-zinc-300 shadow-zinc-950/10 ring-0 duration-200">
                     Outline
                 </Button>
 
@@ -123,7 +123,7 @@ export default function ButtonsPage() {
                     <SnippetPreview description={getButtonVariantDescription('destructive')} {...formatButtonVariantCode('destructive', 'from-destructive/85 to-destructive text-destructive-foreground inset-shadow-2xs inset-shadow-white/25 bg-linear-to-b dark:from-destructive/75 dark:bg-linear-to-t border border-zinc-950/35 shadow-md shadow-zinc-950/20 ring-0 transition-[filter] duration-200 hover:brightness-110 active:brightness-95 dark:border-0 dark:border-zinc-950/50')} />
                 </div>
             </div>
-            <div className="group">
+            <div className="group border-b border-dashed">
                 <Button className="from-destructive to-destructive/85 text-destructive-foreground dark:inset-shadow-2xs dark:inset-shadow-white/10 bg-linear-to-t border border-b-2 border-zinc-950/40 shadow-md shadow-zinc-950/20 ring-1 ring-inset ring-white/25 transition-[filter] duration-200 hover:brightness-110 active:brightness-90 dark:border-x-0 dark:border-t-0 dark:border-zinc-950/50 dark:ring-white/5">
                     <span className="[text-shadow:0_1px_0_var(--color-red-800)]">Destructive</span>
                 </Button>
