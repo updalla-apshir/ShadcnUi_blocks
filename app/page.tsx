@@ -1,5 +1,4 @@
 import BlockPreview from '@/components/BlockPreview'
-import { Logo } from '@/components/logo'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { Button } from '@/components/ui/button'

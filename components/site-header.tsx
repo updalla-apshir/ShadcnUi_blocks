@@ -24,12 +24,12 @@ export const SiteHeader = () => {
                     </Link>
 
                     <div className="flex gap-1">
-                        <Button asChild size="sm" variant="ghost" className={cn('rounded-full opacity-75', isActive('/hero-section') && 'opacity-100')}>
+                        <Button asChild size="sm" variant="ghost" className={cn('text-foreground/75 rounded-full', isActive('/hero-section') && 'text-foreground')}>
                             <Link href="/hero-section" className="!text-sm">
                                 Blocks
                             </Link>
                         </Button>
-                        <Button asChild size="sm" variant="ghost" className={cn('rounded-full opacity-75', isActive('/snippets/button') && 'opacity-100')}>
+                        <Button asChild size="sm" variant="ghost" className={cn('text-foreground/75 rounded-full', isActive('/snippets/button') && 'text-foreground')}>
                             <Link href="/snippets/button" className="!text-sm">
                                 Snippets
                             </Link>
