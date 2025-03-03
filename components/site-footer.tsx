@@ -30,7 +30,7 @@ export const SiteFooter = () => (
                 </div>
             </div>
             <div className="flex">
-                <Button asChild variant="link" className="-ml-4 gap-1">
+                <Button asChild variant="link" className="text-foreground decoration-primary -ml-4 gap-1">
                     <Link href="https://github.com/Meschacirung/cnblocks" target="_blank" className="text-sm">
                         GitHub
                         <ArrowUpRight className="!size-3.5 opacity-50" />

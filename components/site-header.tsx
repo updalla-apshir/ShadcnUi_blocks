@@ -37,7 +37,7 @@ export const SiteHeader = () => {
                     </div>
                 </div>
                 <div className="-mr-2 flex items-center">
-                    <Button asChild variant="link" className="gap-1">
+                    <Button asChild variant="link" className="text-foreground decoration-primary gap-1">
                         <Link href="https://github.com/Meschacirung/cnblocks/" target="_blank" className="text-sm">
                             GitHub
                             <ArrowUpRight className="!size-3.5 opacity-50" />
