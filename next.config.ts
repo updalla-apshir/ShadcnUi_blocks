@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  generateStaticParams: async () => {
+    const { categories, blocks } = require('./data/blocks')
+    return {
+      staticParams: [
+        { path: ['/'] },
+        ...categories.map((category: string) => ({ path: [`/${category}`] })),
+        ...blocks.map((block: { category: string; slug: string }) => ({ path: [`/${block.category}`, block.slug] }))
+      ]
+    }
+  },
 };
 
 export default nextConfig;
