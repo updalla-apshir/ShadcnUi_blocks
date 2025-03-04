@@ -6,6 +6,9 @@ interface PageProps {
     params: Promise<{ category: string }>
 }
 
+export const dynamic = 'force-static'
+export const revalidate = 3600
+
 export async function generateStaticParams() {
     return categories.map((category) => ({
         category: category,
@@ -18,8 +21,6 @@ export async function generateMetadata({ params }: PageProps) {
         title: `Shadcn ${category} Blocks`,
     }
 }
-
-export const revalidate = 3600
 
 export default async function CategoryPage({ params }: PageProps) {
     const { category } = await params
@@ -40,7 +41,10 @@ export default async function CategoryPage({ params }: PageProps) {
             </section>
 
             {categoryBlocks.map((block, index) => (
-                <BlockPreview {...block} key={index} />
+                <BlockPreview
+                    {...block}
+                    key={index}
+                />
             ))}
         </>
     )

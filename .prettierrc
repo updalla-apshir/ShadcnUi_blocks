@@ -6,11 +6,12 @@
     "singleQuote": true,
     "trailingComma": "es5",
     "jsxBracketSameLine": true,
-    "quoteProps" : "as-needed",
-    "jsxSingleQuote" : false,
-    "bracketSpacing" : true,
-    "bracketSameLine" : false,
-    "useTabs" : false,
+    "quoteProps": "as-needed",
+    "jsxSingleQuote": false,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "useTabs": false,
+    "singleAttributePerLine": true,
     "plugins": [
         "prettier-plugin-tailwindcss"
     ],
