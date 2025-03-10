@@ -156,7 +156,7 @@ const hasTransition = (variant: Variant): variant is TargetAndTransition & { tra
 const createVariantsWithTransition = (baseVariants: Variants, transition?: Transition & { exit?: Transition }): Variants => {
     if (!transition) return baseVariants
 
-    const { exit, ...mainTransition } = transition
+    const { ...mainTransition } = transition
 
     return {
         ...baseVariants,
