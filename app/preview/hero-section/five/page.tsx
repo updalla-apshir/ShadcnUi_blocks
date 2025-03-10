@@ -100,8 +100,8 @@ export default function HeroSection() {
                                     preset="fade-in-blur"
                                     speedSegment={0.3}
                                     as="h1"
-                                    className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 lg:text-[5.25rem]">
-                                    Modern solutions for Customer Engagement
+                                    className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
+                                    Modern Solutions for Customer Engagement
                                 </TextEffect>
                                 <TextEffect
                                     per="line"
@@ -151,6 +151,7 @@ export default function HeroSection() {
                                 </AnimatedGroup>
                             </div>
                         </div>
+
                         <AnimatedGroup
                             variants={{
                                 container: {
