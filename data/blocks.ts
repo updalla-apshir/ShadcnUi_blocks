@@ -44,6 +44,27 @@ export const blocks: Block[] = [
         code: loadCode('app/preview/hero-section/four/page.tsx'),
     },
     {
+        slug: 'hero-section',
+        title: 'five',
+        category: 'hero-section',
+        preview: '/preview/hero-section/five',
+        code: loadCode('app/preview/hero-section/five/page.tsx'),
+    },
+    {
+        slug: 'hero-section',
+        title: 'six',
+        category: 'hero-section',
+        preview: '/preview/hero-section/six',
+        code: loadCode('app/preview/hero-section/six/page.tsx'),
+    },
+    {
+        slug: 'hero-section',
+        title: 'seven',
+        category: 'hero-section',
+        preview: '/preview/hero-section/seven',
+        code: loadCode('app/preview/hero-section/seven/page.tsx'),
+    },
+    {
         slug: 'logo-cloud',
         title: 'one',
         category: 'logo-cloud',

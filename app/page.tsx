@@ -20,12 +20,42 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <BlockPreview previewOnly preview="/examples/home/one" category="page" title="Home page" />
-            <BlockPreview previewOnly preview="/examples/pricing/one" category="page" title="Pricing page" />
-            <BlockPreview previewOnly preview="/examples/about/one" category="page" title="About page" />
-            <BlockPreview previewOnly preview="/examples/contact/one" category="page" title="Contact page" />
-            <BlockPreview previewOnly preview="/preview/login/two" category="page" title="login page" />
-            <BlockPreview previewOnly preview="/preview/sign-up/two" category="page" title="sign up page" />
+            <BlockPreview
+                previewOnly
+                preview="/examples/home/one"
+                category="page"
+                title="Home page"
+            />
+            <BlockPreview
+                previewOnly
+                preview="/examples/pricing/one"
+                category="page"
+                title="Pricing page"
+            />
+            <BlockPreview
+                previewOnly
+                preview="/examples/about/one"
+                category="page"
+                title="About page"
+            />
+            <BlockPreview
+                previewOnly
+                preview="/examples/contact/one"
+                category="page"
+                title="Contact page"
+            />
+            <BlockPreview
+                previewOnly
+                preview="/preview/login/two"
+                category="page"
+                title="login page"
+            />
+            <BlockPreview
+                previewOnly
+                preview="/preview/sign-up/two"
+                category="page"
+                title="sign up page"
+            />
             <SiteFooter />
         </>
     )
