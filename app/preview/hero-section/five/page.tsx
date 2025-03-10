@@ -67,10 +67,12 @@ export default function HeroSection() {
                                 },
                             }}
                             className="absolute inset-0 -z-20">
-                            <img
-                                src="https://images.unsplash.com/photo-1568491361227-609824af85a5?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt=""
+                            <Image
+                                src="https://res.cloudinary.com/dg4jhba5c/image/upload/v1741605538/night-background_ni3vqb.jpg"
+                                alt="background"
                                 className="absolute inset-x-0 top-56 -z-20 hidden lg:top-32 dark:block"
+                                width="3276"
+                                height="4095"
                             />
                         </AnimatedGroup>
                         <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>

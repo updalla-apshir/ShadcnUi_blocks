@@ -1,10 +1,11 @@
 import React from 'react'
-import { Mail, SendHorizonal, StoreIcon } from 'lucide-react'
+import { Mail, SendHorizonal } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { TextEffect } from '@/components/motion-primitives/text-effect'
 import { AnimatedGroup } from '@/components/motion-primitives/animated-group'
 import { HeroHeader } from '@/components/hero5-header'
 import { LogoCloud } from '@/components/logo-cloud'
+import Image from 'next/image'
 
 const transitionVariants = {
     item: {
@@ -46,7 +47,7 @@ export default function HeroSection() {
                                 preset="fade-in-blur"
                                 speedSegment={0.3}
                                 as="h1"
-                                className="text-balance text-5xl font-medium md:text-6xl">
+                                className="text-balance text-4xl font-medium sm:text-5xl md:text-6xl">
                                 Your gateway to endless entertainment experiences
                             </TextEffect>
                             <TextEffect
@@ -113,12 +114,14 @@ export default function HeroSection() {
                                     },
                                     ...transitionVariants,
                                 }}>
-                                <div className="-rotate-30 relative mx-auto lg:w-2/3">
+                                <div className="-rotate-30 aspect-3/2 relative mx-auto lg:w-2/3">
                                     <div className="bg-linear-to-b to-background from-background absolute inset-0 via-transparent"></div>
                                     <div className="bg-linear-to-l to-background from-background absolute inset-0 via-transparent"></div>
-                                    <img
-                                        src="https://images.unsplash.com/photo-1614020661483-d2bb855eee1d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                        alt=""
+                                    <Image
+                                        src="https://res.cloudinary.com/dg4jhba5c/image/upload/v1741605545/phone-backgroudn_xqgg5g.jpg"
+                                        alt="Phone Background"
+                                        width="6240"
+                                        height="4160"
                                     />
                                 </div>
                             </AnimatedGroup>
