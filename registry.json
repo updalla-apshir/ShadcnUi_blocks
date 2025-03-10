@@ -816,6 +816,19 @@
       ]
     },
     {
+      "name": "logo-cloud-2",
+      "type": "registry:block",
+      "title": "Logo Cloud 2",
+      "description": "Shadcn/ui website logo cloud section",
+      "files": [
+        {
+          "path": "app/preview/logo-cloud/two/page.tsx",
+          "type": "registry:component",
+          "target": "components/logo-cloud.tsx"
+        }
+      ]
+    },
+    {
       "name": "pricing-1",
       "type": "registry:block",
       "title": "Pricing Block 1",
