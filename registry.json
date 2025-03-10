@@ -829,6 +829,23 @@
       ]
     },
     {
+      "name": "logo-cloud-3",
+      "type": "registry:block",
+      "title": "Logo Cloud 3",
+      "description": "Shadcn/ui website logo cloud section",
+      "registryDependencies": [
+        "https://motion-primitives.com/c/infinite-slider.json",
+        "https://motion-primitives.com/c/progressive-blur.json"
+      ],
+      "files": [
+        {
+          "path": "app/preview/logo-cloud/three/page.tsx",
+          "type": "registry:component",
+          "target": "components/logo-cloud.tsx"
+        }
+      ]
+    },
+    {
       "name": "pricing-1",
       "type": "registry:block",
       "title": "Pricing Block 1",
