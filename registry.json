@@ -419,7 +419,9 @@
       "title": "Hero Section 1",
       "description": "Shadcn/ui website Hero Section",
       "registryDependencies": [
-        "button"
+        "button",
+        "https://motion-primitives.com/c/text-effect.json",
+        "https://motion-primitives.com/c/animated-group.json"
       ],
       "files": [
         {
@@ -430,6 +432,10 @@
         {
           "path": "components/logo.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "components/hero5-header.tsx",
+          "type": "registry:component"
         }
       ]
     },
@@ -439,7 +445,9 @@
       "title": "Hero Section 2",
       "description": "Shadcn/ui website Hero Section",
       "registryDependencies": [
-        "button"
+        "button",
+        "https://motion-primitives.com/c/text-effect.json",
+        "https://motion-primitives.com/c/animated-group.json"
       ],
       "files": [
         {
@@ -450,6 +458,10 @@
         {
           "path": "components/logo.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "components/hero6-header.tsx",
+          "type": "registry:component"
         }
       ]
     },
@@ -459,10 +471,9 @@
       "title": "Hero Section 3",
       "description": "Shadcn/ui website Hero Section",
       "registryDependencies": [
-        "button"
-      ],
-      "dependencies": [
-        "swiper"
+        "button",
+        "https://motion-primitives.com/c/text-effect.json",
+        "https://motion-primitives.com/c/animated-group.json"
       ],
       "files": [
         {
@@ -473,6 +484,14 @@
         {
           "path": "components/logo.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "components/hero5-header.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/logo-cloud.tsx",
+          "type": "registry:component"
         }
       ]
     },
@@ -482,11 +501,126 @@
       "title": "Hero Section 4",
       "description": "Shadcn/ui website Hero Section",
       "registryDependencies": [
-        "button"
+        "button",
+        "https://motion-primitives.com/c/infinite-slider.json",
+        "https://motion-primitives.com/c/progressive-blur.json"
       ],
       "files": [
         {
           "path": "app/preview/hero-section/four/page.tsx",
+          "type": "registry:component",
+          "target": "components/hero-section.tsx"
+        },
+        {
+          "path": "components/logo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/hero8-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-section-5",
+      "type": "registry:block",
+      "title": "Hero Section 5",
+      "description": "Shadcn/ui website Hero Section",
+      "registryDependencies": [
+        "button",
+        "https://motion-primitives.com/c/infinite-slider.json",
+        "https://motion-primitives.com/c/progressive-blur.json"
+      ],
+      "files": [
+        {
+          "path": "app/preview/hero-section/five/page.tsx",
+          "type": "registry:component",
+          "target": "components/hero-section.tsx"
+        },
+        {
+          "path": "components/logo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/hero9-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-section-6",
+      "type": "registry:block",
+      "title": "Hero Section 6",
+      "description": "Shadcn/ui website Hero Section",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "app/preview/hero-section/six/page.tsx",
+          "type": "registry:component",
+          "target": "components/hero-section.tsx"
+        },
+        {
+          "path": "components/logo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-section-7",
+      "type": "registry:block",
+      "title": "Hero Section 7",
+      "description": "Shadcn/ui website Hero Section",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "swiper"
+      ],
+      "files": [
+        {
+          "path": "app/preview/hero-section/seven/page.tsx",
+          "type": "registry:component",
+          "target": "components/hero-section.tsx"
+        },
+        {
+          "path": "components/logo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-section-8",
+      "type": "registry:block",
+      "title": "Hero Section 8",
+      "description": "Shadcn/ui website Hero Section",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "app/preview/hero-section/eight/page.tsx",
+          "type": "registry:component",
+          "target": "components/hero-section.tsx"
+        },
+        {
+          "path": "components/logo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-section-9",
+      "type": "registry:block",
+      "title": "Hero Section 9",
+      "description": "Shadcn/ui website Hero Section",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "app/preview/hero-section/nine/page.tsx",
           "type": "registry:component",
           "target": "components/hero-section.tsx"
         },
