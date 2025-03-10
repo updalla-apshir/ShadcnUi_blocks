@@ -205,7 +205,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                                     src={preview}
                                     id={`block-${title}`}
                                     style={{ '--iframe-height': `${iframeHeight}px` } as React.CSSProperties}
-                                    {...{ fetchpriority: 'low' }}
+                                    {...{ fetchPriority: 'low' }}
                                 />
 
                                 {isLoading && (
