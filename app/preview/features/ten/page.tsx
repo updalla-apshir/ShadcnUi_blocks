@@ -37,8 +37,8 @@ export default function Features() {
                         <CardHeader className="pb-3">
                             <CardHeading
                                 icon={Calendar}
-                                title="Real time location tracking"
-                                description="Advanced tracking system, Instantly locate all your assets."
+                                title="Advanced Scheduling"
+                                description="Scheduling system, Instantly locate all your assets."
                             />
                         </CardHeader>
 
@@ -59,7 +59,7 @@ export default function Features() {
                     </FeatureCard>
 
                     <FeatureCard className="p-6 lg:col-span-2">
-                        <p className="mx-auto my-6 max-w-md text-balance text-center text-2xl font-semibold">Advanced tracking system, Instantly locate all your assets.</p>
+                        <p className="mx-auto my-6 max-w-md text-balance text-center text-2xl font-semibold">Smart scheduling with automated reminders for maintenance.</p>
 
                         <div className="flex justify-center gap-6 overflow-hidden">
                             <CircularUI
