@@ -27,7 +27,6 @@ export default function Features() {
                                     alt="payments illustration"
                                     width={1207}
                                     height={929}
-                                    className="rounded-[15px]"
                                 />
                             </div>
                         </div>
@@ -95,8 +94,8 @@ interface FeatureCardProps {
     className?: string
 }
 
-const FeatureCard = ({ children, className = '' }: FeatureCardProps) => (
-    <Card className={`group relative rounded-none shadow-zinc-950/5 ${className}`}>
+const FeatureCard = ({ children, className }: FeatureCardProps) => (
+    <Card className={cn('group relative rounded-none shadow-zinc-950/5', className)}>
         <CardDecorator />
         {children}
     </Card>
@@ -136,7 +135,7 @@ interface DualModeImageProps {
     className?: string
 }
 
-const DualModeImage = ({ darkSrc, lightSrc, alt, width, height, className = '' }: DualModeImageProps) => (
+const DualModeImage = ({ darkSrc, lightSrc, alt, width, height, className }: DualModeImageProps) => (
     <>
         <Image
             src={darkSrc}
@@ -165,14 +164,14 @@ interface CircularUIProps {
     className?: string
 }
 
-const CircularUI = ({ label, circles, className = '' }: CircularUIProps) => (
+const CircularUI = ({ label, circles, className }: CircularUIProps) => (
     <div className={className}>
         <div className="bg-linear-to-b from-border size-fit rounded-2xl to-transparent p-px">
             <div className="bg-linear-to-b from-background to-muted/25 relative flex aspect-square w-fit items-center -space-x-4 rounded-[15px] p-4">
                 {circles.map((circle, i) => (
                     <div
                         key={i}
-                        className={cn('size-7 rounded-full border sm:size-10', {
+                        className={cn('size-7 rounded-full border sm:size-8', {
                             'border-primary': circle.pattern === 'none',
                             'border-primary bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_4px)]': circle.pattern === 'border',
                             'border-primary bg-background bg-[repeating-linear-gradient(-45deg,var(--color-primary),var(--color-primary)_1px,transparent_1px,transparent_4px)]': circle.pattern === 'primary',
