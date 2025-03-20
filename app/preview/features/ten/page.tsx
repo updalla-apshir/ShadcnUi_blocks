@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
-import { Calendar, type LucideIcon, MapIcon } from 'lucide-react'
+import { Calendar, LucideIcon, MapIcon } from 'lucide-react'
 import Image from 'next/image'
 import { ReactNode } from 'react'
 
