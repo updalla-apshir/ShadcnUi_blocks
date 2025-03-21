@@ -19,7 +19,12 @@ export function registerServiceWorker() {
 }
 
 // Send a message to the service worker
-export function sendMessageToSW(message: any) {
+type SWMessage = {
+  type: string;
+  url?: string;
+};
+
+export function sendMessageToSW(message: SWMessage) {
   if (typeof window !== 'undefined' && 'serviceWorker' in navigator && navigator.serviceWorker.controller) {
     navigator.serviceWorker.controller.postMessage(message);
   }

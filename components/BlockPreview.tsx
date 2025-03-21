@@ -30,14 +30,12 @@ const SMSIZE = 30
 const MDSIZE = 62
 const LGSIZE = 82
 
-// Add this key function to generate cache keys
 const getCacheKey = (src: string) => `iframe-cache-${src}`
 
 export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title, category, previewOnly }) => {
     const [width, setWidth] = useState(DEFAULTSIZE)
     const [mode, setMode] = useState<'preview' | 'code'>('preview')
     const [iframeHeight, setIframeHeight] = useState(0)
-    const [isLoading, setIsLoading] = useState(true)
     const [shouldLoadIframe, setShouldLoadIframe] = useState(false)
     const [cachedHeight, setCachedHeight] = useState<number | null>(null)
     const [isIframeCached, setIsIframeCached] = useState(false)
@@ -54,7 +52,6 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
     const observer = useRef<IntersectionObserver | null>(null)
     const blockRef = useRef<HTMLDivElement>(null)
 
-    // Set up Intersection Observer to load iframe when it comes into view
     useEffect(() => {
         observer.current = new IntersectionObserver(
             (entries) => {
@@ -75,15 +72,12 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
         }
     }, [])
 
-    // Check if the iframe content is already cached
     useEffect(() => {
-        // Check if the iframe content is already cached by service worker
         const checkCache = async () => {
             try {
                 const isCached = await isUrlCached(preview)
                 setIsIframeCached(isCached)
                 if (isCached) {
-                    // If cached by service worker, we can load it immediately
                     setShouldLoadIframe(true)
                 }
             } catch (error) {
@@ -93,18 +87,15 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
 
         checkCache()
 
-        // Also check localStorage for cached height
         try {
             const cacheKey = getCacheKey(preview)
             const cached = localStorage.getItem(cacheKey)
             if (cached) {
                 const { height, timestamp } = JSON.parse(cached)
-                // Use cached height if it's less than 24 hours old
                 const now = Date.now()
                 if (now - timestamp < 24 * 60 * 60 * 1000) {
                     setCachedHeight(height)
                     setIframeHeight(height)
-                    // Still load the iframe, but we can show the correct height immediately
                 }
             }
         } catch (error) {
@@ -112,19 +103,15 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
         }
     }, [preview])
 
-    // Setup iframe load handler and height caching
     useEffect(() => {
         const iframe = iframeRef.current
         if (!iframe || !shouldLoadIframe) return
 
         const handleLoad = () => {
-            setIsLoading(false)
-
             try {
                 const contentHeight = iframe.contentWindow!.document.body.scrollHeight
                 setIframeHeight(contentHeight)
 
-                // Cache the height in localStorage
                 const cacheKey = getCacheKey(preview)
                 const cacheValue = JSON.stringify({
                     height: contentHeight,
@@ -142,23 +129,19 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
         }
     }, [shouldLoadIframe, preview])
 
-    // Add preload link for the iframe source when it's likely to be needed soon
     useEffect(() => {
         if (!blockRef.current || shouldLoadIframe) return
 
-        // Create a preload link for the iframe content
         const linkElement = document.createElement('link')
         linkElement.rel = 'preload'
         linkElement.href = preview
         linkElement.as = 'document'
 
-        // Only add if not already in the document
         if (!document.head.querySelector(`link[rel="preload"][href="${preview}"]`)) {
             document.head.appendChild(linkElement)
         }
 
         return () => {
-            // Clean up the preload link when component unmounts or iframe loads
             const existingLink = document.head.querySelector(`link[rel="preload"][href="${preview}"]`)
             if (existingLink) {
                 document.head.removeChild(existingLink)
