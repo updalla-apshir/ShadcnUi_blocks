@@ -11,7 +11,6 @@ export function CacheControl() {
     const handleClearCache = () => {
         setIsClearing(true)
         try {
-            // Clear localStorage cache
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i)
                 if (key && key.startsWith('iframe-cache-')) {
@@ -19,13 +18,10 @@ export function CacheControl() {
                 }
             }
 
-            // Clear service worker cache
             clearIframeCache()
 
-            // Update service worker
             updateServiceWorker()
 
-            // Show success for a moment
             setTimeout(() => {
                 setIsClearing(false)
             }, 1000)
