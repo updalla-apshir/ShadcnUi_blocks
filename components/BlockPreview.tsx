@@ -13,6 +13,7 @@ import { cn, titleToNumber } from '@/lib/utils'
 import CodeBlock from './code-block'
 import Link from 'next/link'
 import { OpenInV0Button } from './open-in-v0'
+import { isUrlCached } from '@/lib/serviceWorker'
 
 export interface BlockPreviewProps {
     code?: string
@@ -29,11 +30,17 @@ const SMSIZE = 30
 const MDSIZE = 62
 const LGSIZE = 82
 
+// Add this key function to generate cache keys
+const getCacheKey = (src: string) => `iframe-cache-${src}`
+
 export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title, category, previewOnly }) => {
     const [width, setWidth] = useState(DEFAULTSIZE)
     const [mode, setMode] = useState<'preview' | 'code'>('preview')
     const [iframeHeight, setIframeHeight] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
+    const [shouldLoadIframe, setShouldLoadIframe] = useState(false)
+    const [cachedHeight, setCachedHeight] = useState<number | null>(null)
+    const [isIframeCached, setIsIframeCached] = useState(false)
 
     const terminalCode = `pnpm dlx shadcn@canary add https://nsui.irung.me/r/${category}-${titleToNumber(title)}.json`
 
@@ -44,20 +51,120 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
     const isLarge = useMedia('(min-width: 1024px)')
 
     const iframeRef = useRef<HTMLIFrameElement>(null)
+    const observer = useRef<IntersectionObserver | null>(null)
+    const blockRef = useRef<HTMLDivElement>(null)
 
+    // Set up Intersection Observer to load iframe when it comes into view
     useEffect(() => {
-        const iframe = iframeRef.current
-        const handleLoad = () => {
-            setIsLoading(false)
-            const contentHeight = iframe!.contentWindow!.document.body.scrollHeight
-            setIframeHeight(contentHeight)
+        observer.current = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    setShouldLoadIframe(true)
+                    observer.current?.disconnect()
+                }
+            },
+            { threshold: 0.1 }
+        )
+
+        if (blockRef.current) {
+            observer.current.observe(blockRef.current)
         }
 
-        iframe!.addEventListener('load', handleLoad)
         return () => {
-            iframe!.removeEventListener('load', handleLoad)
+            observer.current?.disconnect()
         }
     }, [])
+
+    // Check if the iframe content is already cached
+    useEffect(() => {
+        // Check if the iframe content is already cached by service worker
+        const checkCache = async () => {
+            try {
+                const isCached = await isUrlCached(preview)
+                setIsIframeCached(isCached)
+                if (isCached) {
+                    // If cached by service worker, we can load it immediately
+                    setShouldLoadIframe(true)
+                }
+            } catch (error) {
+                console.error('Error checking cache status:', error)
+            }
+        }
+
+        checkCache()
+
+        // Also check localStorage for cached height
+        try {
+            const cacheKey = getCacheKey(preview)
+            const cached = localStorage.getItem(cacheKey)
+            if (cached) {
+                const { height, timestamp } = JSON.parse(cached)
+                // Use cached height if it's less than 24 hours old
+                const now = Date.now()
+                if (now - timestamp < 24 * 60 * 60 * 1000) {
+                    setCachedHeight(height)
+                    setIframeHeight(height)
+                    // Still load the iframe, but we can show the correct height immediately
+                }
+            }
+        } catch (error) {
+            console.error('Error retrieving cache:', error)
+        }
+    }, [preview])
+
+    // Setup iframe load handler and height caching
+    useEffect(() => {
+        const iframe = iframeRef.current
+        if (!iframe || !shouldLoadIframe) return
+
+        const handleLoad = () => {
+            setIsLoading(false)
+
+            try {
+                const contentHeight = iframe.contentWindow!.document.body.scrollHeight
+                setIframeHeight(contentHeight)
+
+                // Cache the height in localStorage
+                const cacheKey = getCacheKey(preview)
+                const cacheValue = JSON.stringify({
+                    height: contentHeight,
+                    timestamp: Date.now(),
+                })
+                localStorage.setItem(cacheKey, cacheValue)
+            } catch (e) {
+                console.error('Error accessing iframe content:', e)
+            }
+        }
+
+        iframe.addEventListener('load', handleLoad)
+        return () => {
+            iframe.removeEventListener('load', handleLoad)
+        }
+    }, [shouldLoadIframe, preview])
+
+    // Add preload link for the iframe source when it's likely to be needed soon
+    useEffect(() => {
+        if (!blockRef.current || shouldLoadIframe) return
+
+        // Create a preload link for the iframe content
+        const linkElement = document.createElement('link')
+        linkElement.rel = 'preload'
+        linkElement.href = preview
+        linkElement.as = 'document'
+
+        // Only add if not already in the document
+        if (!document.head.querySelector(`link[rel="preload"][href="${preview}"]`)) {
+            document.head.appendChild(linkElement)
+        }
+
+        return () => {
+            // Clean up the preload link when component unmounts or iframe loads
+            const existingLink = document.head.querySelector(`link[rel="preload"][href="${preview}"]`)
+            if (existingLink) {
+                document.head.removeChild(existingLink)
+            }
+        }
+    }, [preview, shouldLoadIframe])
 
     return (
         <section className="group mb-16 border-b [--color-border:color-mix(in_oklab,var(--color-zinc-200)_75%,transparent)] dark:[--color-border:color-mix(in_oklab,var(--color-zinc-800)_60%,transparent)]">
@@ -194,25 +301,31 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({ code, preview, title
                                 defaultSize={DEFAULTSIZE}
                                 minSize={SMSIZE}
                                 className="h-fit border-x">
-                                <iframe
-                                    key={`${category}-${title}-iframe`}
-                                    loading="lazy"
-                                    allowFullScreen
-                                    ref={iframeRef}
-                                    title={title}
-                                    height={iframeHeight}
-                                    className="h-(--iframe-height) @starting:opacity-0 @starting:blur-xl block min-h-56 w-full duration-200 will-change-auto"
-                                    src={preview}
-                                    id={`block-${title}`}
-                                    style={{ '--iframe-height': `${iframeHeight}px` } as React.CSSProperties}
-                                    {...{ fetchPriority: 'low' }}
-                                />
-
-                                {isLoading && (
-                                    <div className="bg-background absolute inset-0 right-2 flex items-center justify-center border-x">
-                                        <div className="border-primary size-6 animate-spin rounded-full border-2 border-t-transparent" />
-                                    </div>
-                                )}
+                                <div ref={blockRef}>
+                                    {shouldLoadIframe ? (
+                                        <iframe
+                                            key={`${category}-${title}-iframe`}
+                                            loading={isIframeCached ? 'eager' : 'lazy'}
+                                            allowFullScreen
+                                            ref={iframeRef}
+                                            title={title}
+                                            height={cachedHeight || iframeHeight}
+                                            className={cn('h-(--iframe-height) block min-h-56 w-full duration-200 will-change-auto', !cachedHeight && '@starting:opacity-0 @starting:blur-xl', isIframeCached && '!opacity-100 !blur-none')}
+                                            src={preview}
+                                            id={`block-${title}`}
+                                            style={
+                                                {
+                                                    '--iframe-height': `${cachedHeight || iframeHeight}px`,
+                                                    display: 'block',
+                                                } as React.CSSProperties
+                                            }
+                                        />
+                                    ) : (
+                                        <div className="flex min-h-56 items-center justify-center">
+                                            <div className="border-primary size-6 animate-spin rounded-full border-2 border-t-transparent" />
+                                        </div>
+                                    )}
+                                </div>
                             </Panel>
 
                             {isLarge && (

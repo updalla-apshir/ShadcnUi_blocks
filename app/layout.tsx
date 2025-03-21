@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import ServiceWorkerInit from '@/components/ServiceWorkerInit'
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-    title: 'Shadcn Blocks',
+    title: 'Shadcn Marketing Blocks',
     description: 'Speed up your workflow with responsive, pre-built UI blocks designed for marketing websites.',
 }
 
@@ -27,9 +28,14 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased`}>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange>
                     {children}
                 </ThemeProvider>
+                <ServiceWorkerInit />
             </body>
             <GoogleAnalytics gaId="G-6KY6TLKXKY" />
         </html>
