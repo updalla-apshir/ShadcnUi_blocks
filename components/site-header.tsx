@@ -23,7 +23,7 @@ export const SiteHeader = () => {
                         <span className="sr-only font-bold">ns UI</span>
                     </Link>
 
-                    <div className="flex gap-1">
+                    <div className="flex gap-1 items-center">
                         <Button asChild size="sm" variant="ghost" className={cn('text-foreground/75 rounded-full', isActive('/hero-section') && 'text-foreground')}>
                             <Link href="/hero-section" className="!text-sm">
                                 Blocks
