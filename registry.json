@@ -319,6 +319,58 @@
       ]
     },
     {
+      "name": "features-10",
+      "type": "registry:block",
+      "title": "Features Block 10",
+      "description": "Shadcn/ui website features block with cards and circular UI elements",
+      "registryDependencies" : [
+        "card"
+      ],
+      "files": [
+        {
+          "path": "app/preview/features/ten/page.tsx",
+          "type": "registry:component",
+          "target": "components/features-10.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-11",
+      "type": "registry:block",
+      "title": "Features Block 11",
+      "description": "Shadcn/ui website features block with grid layout and images",
+      "registryDependencies" : [
+        "card"
+      ],
+      "files": [
+        {
+          "path": "app/preview/features/eleven/page.tsx",
+          "type": "registry:component",
+          "target": "components/features-11.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-12",
+      "type": "registry:block",
+      "title": "Features Block 12",
+      "description": "Shadcn/ui website features block with accordion and animated images",
+      "registryDependencies" : [
+        "accordion",
+        "https://magicui.design/r/border-beam"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "app/preview/features/twelve/page.tsx",
+          "type": "registry:component",
+          "target": "components/features-12.tsx"
+        }
+      ]
+    },
+    {
       "name": "footer-1",
       "type": "registry:block",
       "title": "Footer Block 1",
