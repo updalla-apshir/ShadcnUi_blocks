@@ -83,7 +83,7 @@ export default function Features() {
                         <CardContent className="relative h-fit px-6 pb-6 md:px-12 md:pb-12">
                             <div className="grid grid-cols-4 gap-2 md:grid-cols-6">
                                 <div className="rounded-(--radius) aspect-square border border-dashed"></div>
-                                <div className="rounded-(--radius) bg-muted/50 aspect-square border p-4">
+                                <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
                                     <img
                                         className="m-auto size-8 invert dark:invert-0"
                                         src="https://oxymor-ns.tailus.io/logos/linear.svg"
@@ -93,7 +93,7 @@ export default function Features() {
                                     />
                                 </div>
                                 <div className="rounded-(--radius) aspect-square border border-dashed"></div>
-                                <div className="rounded-(--radius) bg-muted/50 aspect-square border p-4">
+                                <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
                                     <img
                                         className="m-auto size-8 invert dark:invert-0"
                                         src="https://oxymor-ns.tailus.io/logos/netlify.svg"
@@ -103,7 +103,7 @@ export default function Features() {
                                     />
                                 </div>
                                 <div className="rounded-(--radius) aspect-square border border-dashed"></div>
-                                <div className="rounded-(--radius) bg-muted/50 aspect-square border p-4">
+                                <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
                                     <img
                                         className="m-auto size-8 invert dark:invert-0"
                                         src="https://oxymor-ns.tailus.io/logos/github.svg"
